@@ -7,12 +7,12 @@ class ThemeEngine
     const THEMES = [
         'hexactyl' => [
             'name' => 'Hexactyl (Default)',
-            'description' => 'The signature Hexactyl dark theme with purple accents',
-            'primary_color' => '#7c3aed',
+            'description' => 'The signature Hexactyl dark theme with orange accents',
+            'primary_color' => '#f97316',
             'bg_color' => '#0f172a',
             'sidebar_color' => '#1e293b',
             'text_color' => '#e2e8f0',
-            'accent_color' => '#a78bfa',
+            'accent_color' => '#fb923c',
             'success_color' => '#22c55e',
             'warning_color' => '#f59e0b',
             'danger_color' => '#ef4444',

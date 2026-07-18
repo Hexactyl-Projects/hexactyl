@@ -18,10 +18,10 @@ const themes: Theme[] = [
     {
         key: 'hexactyl',
         name: 'Hexactyl',
-        description: 'Signature dark theme with purple accents',
-        primary_color: '#7c3aed',
+        description: 'Signature dark theme with orange accents',
+        primary_color: '#f97316',
         bg_color: '#0f172a',
-        preview_gradient: 'linear-gradient(135deg, #7c3aed 0%, #0f172a 100%)',
+        preview_gradient: 'linear-gradient(135deg, #f97316 0%, #0f172a 100%)',
     },
     {
         key: 'midnight',

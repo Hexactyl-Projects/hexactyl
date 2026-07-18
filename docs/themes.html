@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themes - Hexactyl Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background-color: #16213e;
+            padding: 20px;
+            border-right: 2px solid #f97316;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar h2 {
+            color: #f97316;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f97316;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar ul li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: #f97316;
+            color: #ffffff;
+        }
+        
+        .sidebar .section-title {
+            color: #f97316;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            flex: 1;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #f97316;
+        }
+        
+        .header h1 {
+            color: #f97316;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #b0b0b0;
+            font-size: 1.2em;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #16213e;
+            border-radius: 8px;
+            border-left: 4px solid #f97316;
+        }
+        
+        .section h2 {
+            color: #f97316;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .section h3 {
+            color: #f97316;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .section ul, .section ol {
+            margin-bottom: 15px;
+            margin-left: 20px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0f3460;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f97316;
+        }
+        
+        .code-block {
+            background-color: #0f3460;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #f97316;
+        }
+        
+        .warning {
+            background-color: #ff6b35;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .tip {
+            background-color: #0f3460;
+            color: #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4ade80;
+        }
+        
+        .tip strong {
+            color: #4ade80;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .theme-card {
+            background-color: #1a1a2e;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #f97316;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .theme-preview {
+            height: 150px;
+            display: flex;
+        }
+        
+        .theme-sidebar {
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        
+        .theme-sidebar-item {
+            width: 100%;
+            height: 8px;
+            margin-bottom: 8px;
+            border-radius: 2px;
+        }
+        
+        .theme-main {
+            flex: 1;
+            padding: 15px;
+        }
+        
+        .theme-header {
+            height: 20px;
+            width: 60%;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        
+        .theme-content {
+            height: 8px;
+            width: 80%;
+            margin-bottom: 6px;
+            border-radius: 2px;
+        }
+        
+        .theme-content.short {
+            width: 60%;
+        }
+        
+        .theme-info {
+            padding: 15px;
+        }
+        
+        .theme-info h4 {
+            color: #f97316;
+            margin-bottom: 5px;
+        }
+        
+        .theme-info p {
+            color: #b0b0b0;
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #f97316;
+            text-align: center;
+            color: #b0b0b0;
+        }
+        
+        .footer p {
+            font-size: 0.9em;
+        }
+        
+        .version {
+            color: #f97316;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Hexactyl</h2>
+            <div class="section-title">Navigation</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="installation.html">Installation</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="themes.html" class="active">Themes</a></li>
+                <li><a href="server-templates.html">Server Templates</a></li>
+                <li><a href="api.html">API Documentation</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            
+            <div class="section-title">Resources</div>
+            <ul>
+                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
+                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
+            </ul>
+        </nav>
+        
+        <main class="main-content">
+            <header class="header">
+                <h1>Theme System</h1>
+                <p>Customize the appearance of your Hexactyl panel</p>
+            </header>
+            
+            <section class="section">
+                <h2>Available Themes</h2>
+                <p>Hexactyl comes with five built-in themes to match your preferences and branding:</p>
+                
+                <div class="theme-grid">
+                    <div class="theme-card">
+                        <div class="theme-preview" style="background-color: #1a1a2e;">
+                            <div class="theme-sidebar" style="background-color: #16213e;">
+                                <div class="theme-sidebar-item" style="background-color: #f97316;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #4a5568;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #4a5568;"></div>
+                            </div>
+                            <div class="theme-main">
+                                <div class="theme-header" style="background-color: #f97316;"></div>
+                                <div class="theme-content" style="background-color: #4a5568;"></div>
+                                <div class="theme-content short" style="background-color: #4a5568;"></div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h4>Hexactyl (Default)</h4>
+                            <p>The classic Hexactyl theme with orange accents and dark backgrounds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <div class="theme-preview" style="background-color: #0f172a;">
+                            <div class="theme-sidebar" style="background-color: #1e293b;">
+                                <div class="theme-sidebar-item" style="background-color: #3b82f6;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #475569;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #475569;"></div>
+                            </div>
+                            <div class="theme-main">
+                                <div class="theme-header" style="background-color: #3b82f6;"></div>
+                                <div class="theme-content" style="background-color: #475569;"></div>
+                                <div class="theme-content short" style="background-color: #475569;"></div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h4>Midnight Blue</h4>
+                            <p>A deep blue theme for a professional, modern appearance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <div class="theme-preview" style="background-color: #0a1f0a;">
+                            <div class="theme-sidebar" style="background-color: #132e13;">
+                                <div class="theme-sidebar-item" style="background-color: #22c55e;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #4a5568;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #4a5568;"></div>
+                            </div>
+                            <div class="theme-main">
+                                <div class="theme-header" style="background-color: #22c55e;"></div>
+                                <div class="theme-content" style="background-color: #4a5568;"></div>
+                                <div class="theme-content short" style="background-color: #4a5568;"></div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h4>Forest Green</h4>
+                            <p>An earthy green theme inspired by nature and forests.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <div class="theme-preview" style="background-color: #1a0f0a;">
+                            <div class="theme-sidebar" style="background-color: #2d1a12;">
+                                <div class="theme-sidebar-item" style="background-color: #ea580c;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #57534e;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #57534e;"></div>
+                            </div>
+                            <div class="theme-main">
+                                <div class="theme-header" style="background-color: #ea580c;"></div>
+                                <div class="theme-content" style="background-color: #57534e;"></div>
+                                <div class="theme-content short" style="background-color: #57534e;"></div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h4>Sunset Orange</h4>
+                            <p>A warm, vibrant theme with sunset-inspired colors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="theme-card">
+                        <div class="theme-preview" style="background-color: #ffffff;">
+                            <div class="theme-sidebar" style="background-color: #f3f4f6;">
+                                <div class="theme-sidebar-item" style="background-color: #2563eb;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #d1d5db;"></div>
+                                <div class="theme-sidebar-item" style="background-color: #d1d5db;"></div>
+                            </div>
+                            <div class="theme-main">
+                                <div class="theme-header" style="background-color: #2563eb;"></div>
+                                <div class="theme-content" style="background-color: #d1d5db;"></div>
+                                <div class="theme-content short" style="background-color: #d1d5db;"></div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h4>Clean Light</h4>
+                            <p>A bright, clean light theme for daytime use.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Changing Themes</h2>
+                <p>Switch between themes using the panel settings or configuration file:</p>
+                
+                <h3>Via Panel Settings</h3>
+                <ol>
+                    <li>Log in to your Hexactyl panel</li>
+                    <li>Click on your profile icon in the top right</li>
+                    <li>Select <strong>Settings</strong></li>
+                    <li>Navigate to <strong>Appearance</strong></li>
+                    <li>Choose your preferred theme from the dropdown</li>
+                    <li>Click <strong>Save Changes</strong></li>
+                </ol>
+                
+                <h3>Via Configuration File</h3>
+                <p>Set the default theme for all users in the <code>.env</code> file:</p>
+                <div class="code-block">
+# Theme Configuration<br>
+APP_THEME=hexactyl<br><br>
+# Available options:<br>
+# - hexactyl (default)<br>
+# - midnight-blue<br>
+# - forest-green<br>
+# - sunset-orange<br>
+# - clean-light
+                </div>
+                
+                <h3>Via Admin Panel</h3>
+                <p>Administrators can set the default theme for all users:</p>
+                <ol>
+                    <li>Go to <strong>Admin Panel → Settings</strong></li>
+                    <li>Navigate to <strong>Appearance</strong></li>
+                    <li>Select the default theme</li>
+                    <li>Choose whether users can override the theme</li>
+                    <li>Save your settings</li>
+                </ol>
+            </section>
+            
+            <section class="section">
+                <h2>Theme Preview</h2>
+                <p>Preview themes before applying them to see how they look:</p>
+                
+                <h3>Live Preview</h3>
+                <p>The theme preview feature allows you to see changes in real-time:</p>
+                <ol>
+                    <li>Open the Settings page</li>
+                    <li>Click on a theme card to preview it</li>
+                    <li>The panel will temporarily switch to show the theme</li>
+                    <li>Click <strong>Apply</strong> to save or <strong>Cancel</strong> to revert</li>
+                </ol>
+                
+                <h3>Theme Differences</h3>
+                <p>Each theme has unique characteristics:</p>
+                <ul>
+                    <li><strong>Hexactyl:</strong> Orange (#f97316) accent, dark navy backgrounds</li>
+                    <li><strong>Midnight Blue:</strong> Blue (#3b82f6) accent, deep slate backgrounds</li>
+                    <li><strong>Forest Green:</strong> Green (#22c55e) accent, dark forest backgrounds</li>
+                    <li><strong>Sunset Orange:</strong> Burnt orange (#ea580c) accent, warm brown backgrounds</li>
+                    <li><strong>Clean Light:</strong> Blue (#2563eb) accent, white/light gray backgrounds</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2>Custom CSS Support</h2>
+                <p>Hexactyl supports custom CSS for advanced theme customization:</p>
+                
+                <h3>Adding Custom CSS</h3>
+                <p>Create a custom CSS file to override default styles:</p>
+                <div class="code-block">
+# Create custom CSS directory<br>
+mkdir -p /etc/hexactyl/custom/css<br><br>
+# Create your custom stylesheet<br>
+nano /etc/hexactyl/custom/css/custom.css
+                </div>
+                
+                <h3>Custom CSS Example</h3>
+                <div class="code-block">
+/* Custom Hexactyl Styles */<br><br>
+/* Change primary color */<br>
+:root {<br>
+&nbsp;&nbsp;--color-primary: #your-color-here;<br>
+&nbsp;&nbsp;--color-primary-hover: #your-hover-color;<br>
+}<br><br>
+/* Custom sidebar styling */<br>
+.sidebar {<br>
+&nbsp;&nbsp;background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);<br>
+}<br><br>
+/* Custom button styles */<br>
+.btn-primary {<br>
+&nbsp;&nbsp;border-radius: 8px;<br>
+&nbsp;&nbsp;font-weight: 600;<br>
+}
+                </div>
+                
+                <h3>Loading Custom CSS</h3>
+                <p>Enable custom CSS in the configuration:</p>
+                <div class="code-block">
+# Custom Theme Settings<br>
+CUSTOM_CSS_ENABLED=true<br>
+CUSTOM_CSS_PATH=/etc/hexactyl/custom/css/custom.css
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ Important Notes:</strong>
+                    Custom CSS may break with panel updates. Always backup your customizations and test changes in a development environment first.
+                </div>
+                
+                <h3>CSS Variable Reference</h3>
+                <p>Hexactyl uses CSS variables for theming. Key variables include:</p>
+                <ul>
+                    <li><code>--color-primary</code> - Main accent color</li>
+                    <li><code>--color-primary-hover</code> - Hover state color</li>
+                    <li><code>--bg-primary</code> - Main background color</li>
+                    <li><code>--bg-secondary</code> - Secondary background color</li>
+                    <li><code>--text-primary</code> - Primary text color</li>
+                    <li><code>--text-secondary</code> - Secondary text color</li>
+                    <li><code>--border-color</code> - Border color</li>
+                    <li><code>--sidebar-bg</code> - Sidebar background color</li>
+                </ul>
+                
+                <div class="tip">
+                    <strong>💡 Theme Development:</strong>
+                    To create a complete custom theme, fork an existing theme from the GitHub repository and modify the CSS variables.
+                </div>
+            </section>
+            
+            <footer class="footer">
+                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
+                <p>© 2026 Hexactyl. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
