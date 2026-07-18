@@ -4,380 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started - Hexactyl Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background-color: #16213e;
-            padding: 20px;
-            border-right: 2px solid #f97316;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar h2 {
-            color: #f97316;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f97316;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul li a {
-            color: #b0b0b0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .sidebar ul li a:hover,
-        .sidebar ul li a.active {
-            background-color: #f97316;
-            color: #ffffff;
-        }
-        
-        .sidebar .section-title {
-            color: #f97316;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            flex: 1;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f97316;
-        }
-        
-        .header h1 {
-            color: #f97316;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.2em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #16213e;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-        }
-        
-        .section h2 {
-            color: #f97316;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        
-        .section h3 {
-            color: #f97316;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .section ul, .section ol {
-            margin-bottom: 15px;
-            margin-left: 20px;
-        }
-        
-        .section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f3460;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #f97316;
-        }
-        
-        .code-block {
-            background-color: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-left: 4px solid #f97316;
-        }
-        
-        .warning {
-            background-color: #ff6b35;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background-color: #0f3460;
-            color: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .tip strong {
-            color: #4ade80;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #f97316;
-            text-align: center;
-            color: #b0b0b0;
-        }
-        
-        .footer p {
-            font-size: 0.9em;
-        }
-        
-        .version {
-            color: #f97316;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>Hexactyl</h2>
-            <div class="section-title">Navigation</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="getting-started.html" class="active">Getting Started</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="configuration.html">Configuration</a></li>
-                <li><a href="themes.html">Themes</a></li>
-                <li><a href="server-templates.html">Server Templates</a></li>
-                <li><a href="api.html">API Documentation</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-            
-            <div class="section-title">Resources</div>
-            <ul>
-                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
-                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/hexactyl-logo.svg" alt="Hexactyl" class="logo">
+                <h1>Hexactyl</h1>
+                <p class="version">v1.0.0</p>
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-section">Getting Started</li>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="installation.html">Installation</a></li>
+                    <li><a href="getting-started.html" class="active">Getting Started</a></li>
+                    <li class="nav-section">Configuration</li>
+                    <li><a href="configuration.html">Configuration</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li class="nav-section">Features</li>
+                    <li><a href="server-templates.html">Server Templates</a></li>
+                    <li><a href="api.html">API Reference</a></li>
+                    <li class="nav-section">Support</li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+        </aside>
+
         <main class="main-content">
-            <header class="header">
-                <h1>Getting Started</h1>
-                <p>Your first steps with Hexactyl game server management panel</p>
-            </header>
-            
-            <section class="section">
-                <h2>Requirements</h2>
-                <p>Before you begin, ensure you have the following prerequisites met:</p>
-                
-                <h3>System Requirements</h3>
-                <ul>
-                    <li><strong>Operating System:</strong> Ubuntu 20.04 LTS or newer, Debian 11+, or CentOS 8+</li>
-                    <li><strong>Docker:</strong> Docker Engine 20.10+ and Docker Compose 2.0+</li>
-                    <li><strong>Memory:</strong> Minimum 2GB RAM (4GB recommended for production)</li>
-                    <li><strong>Storage:</strong> At least 10GB free disk space</li>
-                    <li><strong>Network:</strong> Stable internet connection with ports 80, 443 available</li>
-                </ul>
-                
-                <h3>Software Dependencies</h3>
-                <ul>
-                    <li><strong>Git:</strong> For cloning the repository</li>
-                    <li><strong>curl:</strong> For downloading installation scripts</li>
-                    <li><strong>Basic Linux knowledge:</strong> Command line familiarity recommended</li>
-                </ul>
-                
-                <div class="warning">
-                    <strong>⚠️ Important Note:</strong>
-                    Hexactyl requires Docker to function properly. If you don't have Docker installed, please follow our <a href="installation.html" style="color: #ffffff;">Installation Guide</a> first.
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Quick Start Guide</h2>
-                <p>Follow these steps to get Hexactyl running quickly on your system:</p>
-                
-                <h3>Step 1: Download Hexactyl</h3>
-                <p>Open your terminal and clone the Hexactyl repository:</p>
-                <div class="code-block">
-git clone https://github.com/hexactyl/hexactyl.git<br>
-cd hexactyl
-                </div>
-                
-                <h3>Step 2: Configure Environment</h3>
-                <p>Copy the example environment file and configure it:</p>
-                <div class="code-block">
-cp .env.example .env<br>
-nano .env
-                </div>
-                
-                <p>At minimum, you should configure these variables:</p>
-                <ul>
-                    <li><code>PANEL_URL</code> - Your panel's URL (e.g., https://panel.yourdomain.com)</li>
-                    <li><code>APP_KEY</code> - Generate with <code>openssl rand -base64 32</code></li>
-                    <li><code>DB_PASSWORD</code> - Secure database password</li>
-                </ul>
-                
-                <h3>Step 3: Start Hexactyl</h3>
-                <p>Launch Hexactyl using Docker Compose:</p>
-                <div class="code-block">
-docker compose up -d
-                </div>
-                
-                <h3>Step 4: Access the Panel</h3>
-                <p>Open your web browser and navigate to your panel URL. You'll be greeted with the setup wizard to create your admin account.</p>
-                
-                <div class="tip">
-                    <strong>💡 Pro Tip:</strong>
-                    For production deployments, always use HTTPS. Configure a reverse proxy with Nginx or Apache for SSL termination.
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>First Steps After Installation</h2>
-                <p>Once Hexactyl is running, complete these essential configuration steps:</p>
-                
-                <h3>1. Create Admin Account</h3>
-                <p>During the initial setup, you'll create the primary administrator account. Choose a strong password and remember your credentials. This account will have full control over the panel.</p>
-                
-                <h3>2. Configure Server Node</h3>
-                <p>Hexactyl uses a node-based architecture. After logging in:</p>
+            <h1>Getting Started</h1>
+            <p>This guide walks you through the essential steps to start using Hexactyl. By the end, you will have a fully configured admin account, a game server running in Docker, and a clear understanding of the dashboard.</p>
+
+            <section>
+                <h2>First Login</h2>
+                <p>After completing the installation, open your browser and navigate to your panel URL. You will see the login page.</p>
                 <ol>
-                    <li>Navigate to <strong>Admin Panel → Nodes</strong></li>
-                    <li>Click <strong>Create New Node</strong></li>
-                    <li>Enter your server's details (name, FQDN, port)</li>
-                    <li>Copy the node token for the daemon installation</li>
+                    <li>Enter the email address you specified when creating the admin user.</li>
+                    <li>Enter the password you set during <code>php artisan p:user:make</code>.</li>
+                    <li>Click <strong>Sign In</strong> to access the admin dashboard.</li>
                 </ol>
-                
-                <h3>3. Install Daemon</h3>
-                <p>The Hexactyl Daemon runs on your game servers and manages containers. Install it on each node:</p>
-                <div class="code-block">
-curl -sSL https://get.hexactyl.dev | bash
-                </div>
-                
-                <h3>4. Configure Game Servers</h3>
-                <p>Create your first game server by:</p>
-                <ol>
-                    <li>Going to <strong>Servers → Create New</strong></li>
-                    <li>Selecting a game type (Minecraft, ARK, etc.)</li>
-                    <li>Choosing the node and allocation</li>
-                    <li>Setting resource limits (CPU, RAM, disk)</li>
-                </ol>
+                <p>If you forgot your credentials, you can reset the admin password by running:</p>
+                <pre><code>php artisan p:user:make --email=admin@yourdomain.com</code></pre>
+                <p>This will prompt you for a new password and confirm the account exists.</p>
             </section>
-            
-            <section class="section">
+
+            <section>
+                <h2>Understanding the Dashboard</h2>
+                <p>The dashboard provides an at-a-glance view of your entire hosting environment:</p>
+                <ul>
+                    <li><strong>Total Servers</strong> &mdash; The number of active game servers across all nodes.</li>
+                    <li><strong>Total Users</strong> &mdash; Registered users on the panel.</li>
+                    <li><strong>Nodes Online</strong> &mdash; Nodes currently connected and healthy.</li>
+                    <li><strong>Recent Activity</strong> &mdash; A feed of recent server creations, user registrations, and administrative actions.</li>
+                </ul>
+                <p>The left sidebar in the admin area provides access to Servers, Users, Nodes, Locations, Server Eggs, and Settings. Each section is described in this guide.</p>
+            </section>
+
+            <section>
                 <h2>Creating Your First Server</h2>
-                <p>Let's walk through creating your first game server in detail:</p>
-                
-                <h3>Server Creation Process</h3>
-                <p>After setting up your node, creating a server is straightforward:</p>
-                
+                <p>Before you can create a server, you need at least one node configured. Follow these steps:</p>
                 <ol>
-                    <li><strong>Navigate to Servers:</strong> Click "Servers" in the main navigation</li>
-                    <li><strong>Click Create:</strong> Press the "Create New Server" button</li>
-                    <li><strong>Basic Details:</strong>
-                        <ul>
-                            <li>Server Name: A descriptive name for your server</li>
-                            <li>Server Type: Select the game you want to host</li>
-                            <li>Version: Choose the game version</li>
-                        </ul>
-                    </li>
-                    <li><strong>Allocation:</strong> Select the node and port allocation</li>
-                    <li><strong>Resources:</strong> Set CPU, memory, and disk limits</li>
-                    <li><strong>Environment:</strong> Configure game-specific settings</li>
-                    <li><strong>Create:</strong> Click "Create Server" to deploy</li>
+                    <li>Navigate to <strong>Nodes</strong> in the admin sidebar and click <strong>Create New</strong>.</li>
+                    <li>Fill in the node name, FQDN, and the port range for the daemon. The default daemon port is <code>8080</code>.</li>
+                    <li>Copy the <strong>Node Auto-Configuration Token</strong> from the node page. You will need this when setting up the Wings daemon on the server.</li>
+                    <li>Go to <strong>Servers</strong> and click <strong>Create New</strong>.</li>
+                    <li>Select the node, assign a server name, and choose a <strong>Nest</strong> (game category such as Minecraft, Rust, etc.).</li>
+                    <li>Select the <strong>Egg</strong> (specific game type) and configure the startup command, memory, disk, and CPU limits.</li>
+                    <li>Assign the server to a user and click <strong>Create Server</strong>.</li>
                 </ol>
-                
-                <h3>Managing Your Server</h3>
-                <p>Once created, you can manage your server from the server dashboard:</p>
-                <ul>
-                    <li><strong>Console:</strong> Real-time server console with command input</li>
-                    <li><strong>Files:</strong> File manager for uploading and editing server files</li>
-                    <li><strong>Databases:</strong> Create and manage MySQL/PostgreSQL databases</li>
-                    <li><strong>Schedules:</strong> Set up automated tasks and restarts</li>
-                    <li><strong>Backups:</strong> Configure automatic backup schedules</li>
-                    <li><strong>Users:</strong> Grant access to other users</li>
-                </ul>
-                
-                <div class="tip">
-                    <strong>💡 Getting Help:</strong>
-                    Join our Discord community if you encounter any issues during setup. Our community is friendly and ready to help!
-                </div>
+                <p>The panel will queue the server creation task. Once the Wings daemon picks it up, the server will appear as <strong>Running</strong> in the dashboard.</p>
             </section>
-            
-            <section class="section">
+
+            <section>
+                <h2>Node Configuration Basics</h2>
+                <p>Nodes are the physical machines that run your game servers. Each node runs the Wings daemon, which communicates with the panel over HTTPS.</p>
+                <h3>Node Settings</h3>
+                <ul>
+                    <li><strong>Name</strong> &mdash; A human-readable identifier for the node (e.g., &ldquo;US-East-1&rdquo;).</li>
+                    <li><strong>FQDN</strong> &mdash; The fully qualified domain name that Wings will use to connect (e.g., <code>node1.example.com</code>).</li>
+                    <li><strong>Port Range</strong> &mdash; The range of ports available for game servers. Default is <code>25565&ndash;25655</code> for Minecraft.</li>
+                    <li><strong>Memory &amp; Disk</strong> &mdash; The total allocatable resources on the node. These values are used to determine if new servers can be placed.</li>
+                </ul>
+                <p>After creating the node, install Wings on the target machine and run the auto-configuration command provided on the node page.</p>
+            </section>
+
+            <section>
+                <h2>User Management</h2>
+                <p>Hexactyl includes a full user management system. Users can register through the panel or be created manually by an admin.</p>
+                <h3>Creating Users</h3>
+                <ol>
+                    <li>Navigate to <strong>Users</strong> in the admin panel and click <strong>Create New</strong>.</li>
+                    <li>Enter the user&rsquo;s email, first name, last name, and a password.</li>
+                    <li>Optionally, check <strong>Root Administrator</strong> to grant full admin access.</li>
+                    <li>Click <strong>Create User</strong> to finish.</li>
+                </ol>
+                <h3>Assigning Servers</h3>
+                <p>When creating or editing a server, you can assign it to a specific user. That user will then be able to manage the server through their own dashboard, start/stop it, access the console, and upload files.</p>
+                <h3>Permissions</h3>
+                <p>Non-admin users can only see and manage servers that have been explicitly assigned to them. Admins have unrestricted access to all nodes, servers, users, and settings.</p>
+            </section>
+
+            <section>
+                <h2>API Key Setup</h2>
+                <p>Hexactyl provides a RESTful API for building custom integrations. To use the API, you need to generate an API key pair.</p>
+                <h3>Generating Keys</h3>
+                <ol>
+                    <li>Log in to the panel and navigate to <strong>Account Settings</strong>.</li>
+                    <li>Click the <strong>API Credentials</strong> tab.</li>
+                    <li>Click <strong>Create New</strong> and provide a descriptive label (e.g., &ldquo;CI/CD Pipeline&rdquo;).</li>
+                    <li>Copy the <strong>API Key</strong> and <strong>API Secret</strong> immediately. The secret is only shown once.</li>
+                </ol>
+                <h3>Using the API</h3>
+                <p>All API requests require two headers:</p>
+                <pre><code>Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json</code></pre>
+                <p>For client API keys, include the key and secret in the request body or as query parameters. The API base URL is:</p>
+                <pre><code>https://yourpanel.example.com/api/client</code></pre>
+                <p>Refer to the <a href="api.html">API Reference</a> page for a full list of endpoints and examples.</p>
+            </section>
+
+            <section>
                 <h2>Next Steps</h2>
-                <p>Now that you have Hexactyl running, explore these topics to make the most of your panel:</p>
-                
+                <p>Once you have the basics down, explore these areas:</p>
                 <ul>
-                    <li><strong><a href="configuration.html" style="color: #f97316;">Configuration</a>:</strong> Learn about advanced configuration options</li>
-                    <li><strong><a href="themes.html" style="color: #f97316;">Themes</a>:</strong> Customize the panel's appearance</li>
-                    <li><strong><a href="server-templates.html" style="color: #f97316;">Server Templates</a>:</strong> Create templates for quick server deployment</li>
-                    <li><strong><a href="api.html" style="color: #f97316;">API</a>:</strong> Integrate with external tools and scripts</li>
-                    <li><strong><a href="faq.html" style="color: #f97316;">FAQ</a>:</strong> Find answers to common questions</li>
+                    <li>Set up additional nodes to scale your hosting capacity.</li>
+                    <li>Create server templates to streamline deployment.</li>
+                    <li>Configure email settings for user notifications.</li>
+                    <li>Enable S3 backups for automatic server backups.</li>
+                    <li>Review the <a href="configuration.html">Configuration</a> page for advanced options.</li>
                 </ul>
             </section>
-            
+
             <footer class="footer">
-                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
-                <p>© 2026 Hexactyl. All rights reserved.</p>
+                <p>Hexactyl Panel &copy; 2024 &mdash; Built by <a href="https://github.com/itriedcoding" target="_blank">itriedcoding</a></p>
+                <p>Licensed under the MIT License</p>
             </footer>
         </main>
     </div>

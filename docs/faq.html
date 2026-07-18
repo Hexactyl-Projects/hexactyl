@@ -4,499 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Hexactyl Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background-color: #16213e;
-            padding: 20px;
-            border-right: 2px solid #f97316;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar h2 {
-            color: #f97316;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f97316;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul li a {
-            color: #b0b0b0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .sidebar ul li a:hover,
-        .sidebar ul li a.active {
-            background-color: #f97316;
-            color: #ffffff;
-        }
-        
-        .sidebar .section-title {
-            color: #f97316;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            flex: 1;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f97316;
-        }
-        
-        .header h1 {
-            color: #f97316;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.2em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #16213e;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-        }
-        
-        .section h2 {
-            color: #f97316;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        
-        .section h3 {
-            color: #f97316;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .section ul, .section ol {
-            margin-bottom: 15px;
-            margin-left: 20px;
-        }
-        
-        .section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f3460;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #f97316;
-        }
-        
-        .code-block {
-            background-color: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-left: 4px solid #f97316;
-        }
-        
-        .warning {
-            background-color: #ff6b35;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background-color: #0f3460;
-            color: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .tip strong {
-            color: #4ade80;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .faq-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #1a1a2e;
-            border-radius: 8px;
-            border-left: 3px solid #f97316;
-        }
-        
-        .faq-item h3 {
-            color: #f97316;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        
-        .faq-item p {
-            margin-bottom: 0;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #f97316;
-            text-align: center;
-            color: #b0b0b0;
-        }
-        
-        .footer p {
-            font-size: 0.9em;
-        }
-        
-        .version {
-            color: #f97316;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>Hexactyl</h2>
-            <div class="section-title">Navigation</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="configuration.html">Configuration</a></li>
-                <li><a href="themes.html">Themes</a></li>
-                <li><a href="server-templates.html">Server Templates</a></li>
-                <li><a href="api.html">API Documentation</a></li>
-                <li><a href="faq.html" class="active">FAQ</a></li>
-            </ul>
-            
-            <div class="section-title">Resources</div>
-            <ul>
-                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
-                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        
-        <main class="main-content">
-            <header class="header">
-                <h1>Frequently Asked Questions</h1>
-                <p>Find answers to common questions about Hexactyl</p>
-            </header>
-            
-            <section class="section">
-                <h2>General Questions</h2>
-                
-                <div class="faq-item">
-                    <h3>What is Hexactyl?</h3>
-                    <p>Hexactyl is a modern, open-source game server management panel. It allows you to manage multiple game servers (Minecraft, ARK, Rust, etc.) from a single web interface. Hexactyl provides features like user management, automated backups, file management, database administration, and a RESTful API for automation.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Is Hexactyl free to use?</h3>
-                    <p>Yes, Hexactyl is completely free and open-source. You can use it for personal or commercial purposes without any licensing fees. The source code is available on GitHub under the MIT license.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>What games does Hexactyl support?</h3>
-                    <p>Hexactyl supports a wide range of games including:</p>
-                    <ul>
-                        <li>Minecraft (Java and Bedrock editions)</li>
-                        <li>ARK: Survival Evolved</li>
-                        <li>Rust</li>
-                        <li>Valheim</li>
-                        <li>Terraria</li>
-                        <li>CS:GO / CS2</li>
-                        <li>Garry's Mod</li>
-                        <li>And many more through custom eggs</li>
-                    </ul>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Can I run Hexactyl on a VPS?</h3>
-                    <p>Yes, Hexactyl is designed to run on VPS (Virtual Private Servers). It works great on providers like DigitalOcean, Vultr, Hetzner, Linode, and AWS EC2. We recommend at least 2GB RAM for the panel itself, plus additional resources for your game servers.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Installation Questions</h2>
-                
-                <div class="faq-item">
-                    <h3>What are the system requirements?</h3>
-                    <p>Minimum requirements for Hexactyl:</p>
-                    <ul>
-                        <li><strong>OS:</strong> Ubuntu 20.04+, Debian 11+, or CentOS 8+</li>
-                        <li><strong>RAM:</strong> 2GB minimum (4GB recommended)</li>
-                        <li><strong>Storage:</strong> 10GB free disk space</li>
-                        <li><strong>Docker:</strong> Docker 20.10+ and Docker Compose 2.0+</li>
-                    </ul>
-                    <p>For game servers, you'll need additional resources depending on the games you're hosting.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Can I install Hexactyl on my local machine?</h3>
-                    <p>While possible for development purposes, Hexactyl is designed to run on a remote server. For production use, we recommend a VPS or dedicated server. Local installations may have networking issues and aren't suitable for hosting game servers that others need to access.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I update Hexactyl?</h3>
-                    <p>To update Hexactyl to the latest version:</p>
-                    <div class="code-block">
-cd /etc/hexactyl<br>
-git pull origin main<br>
-docker compose pull<br>
-docker compose up -d
-                    </div>
-                    <p>Always backup your database and configuration before updating.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Do I need to install Docker separately?</h3>
-                    <p>Yes, Docker and Docker Compose must be installed before installing Hexactyl. Our installation guide includes instructions for installing Docker on various Linux distributions.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Configuration Questions</h2>
-                
-                <div class="faq-item">
-                    <h3>How do I enable HTTPS?</h3>
-                    <p>To enable HTTPS, you'll need to configure a reverse proxy (Nginx or Apache) with SSL certificates. We recommend using Let's Encrypt for free SSL certificates. See our <a href="installation.html" style="color: #f97316;">Installation Guide</a> for detailed instructions.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I change the panel URL?</h3>
-                    <p>Update the <code>APP_URL</code> variable in your <code>.env</code> file:</p>
-                    <div class="code-block">
-APP_URL=https://your-new-url.com
-                    </div>
-                    <p>Then restart the containers: <code>docker compose restart</code></p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Can I use MySQL instead of MariaDB?</h3>
-                    <p>Yes, Hexactyl works with MySQL 8.0, MariaDB 10.5+, and PostgreSQL 13+. MySQL is the default and most tested option.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I configure email settings?</h3>
-                    <p>Email configuration is done through environment variables in the <code>.env</code> file. See our <a href="configuration.html" style="color: #f97316;">Configuration Guide</a> for detailed mail setup instructions.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>What is the default admin login?</h3>
-                    <p>There is no default admin account. During the first installation, you'll be guided through creating your admin account through the web interface. If you lose access, you can reset it via the command line:</p>
-                    <div class="code-block">
-docker exec -it hexactyl-panel php artisan p:user:make --admin
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Server Management Questions</h2>
-                
-                <div class="faq-item">
-                    <h3>How do I add a new node?</h3>
-                    <p>To add a new node:</p>
-                    <ol>
-                        <li>Go to <strong>Admin Panel → Nodes</strong></li>
-                        <li>Click <strong>Create New Node</strong></li>
-                        <li>Enter the node details (name, FQDN, port)</li>
-                        <li>Copy the node token</li>
-                        <li>Install the daemon on the new server using the token</li>
-                    </ol>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Can I move servers between nodes?</h3>
-                    <p>Yes, but it requires manual migration. You'll need to:</p>
-                    <ol>
-                        <li>Backup the server data</li>
-                        <li>Create a new server on the target node</li>
-                        <li>Restore the backup to the new server</li>
-                        <li>Update DNS if needed</li>
-                        <li>Delete the old server</li>
-                    </ol>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I create backups?</h3>
-                    <p>Hexactyl supports automated backups. To set up backups:</p>
-                    <ol>
-                        <li>Go to your server panel</li>
-                        <li>Click <strong>Backups</strong></li>
-                        <li>Click <strong>Create Backup</strong> for manual backups</li>
-                        <li>Or configure scheduled backups in <strong>Schedules</strong></li>
-                    </ol>
-                    <p>You can store backups locally or on S3-compatible storage.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I access server files?</h3>
-                    <p>Use the built-in file manager:</p>
-                    <ol>
-                        <li>Go to your server panel</li>
-                        <li>Click <strong>Files</strong></li>
-                        <li>Browse, upload, download, and edit files directly in the browser</li>
-                    </ol>
-                    <p>You can also use SFTP with the credentials shown in the server panel.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Can I give other users access to my servers?</h3>
-                    <p>Yes, Hexactyl has a comprehensive user permission system:</p>
-                    <ol>
-                        <li>Go to your server panel</li>
-                        <li>Click <strong>Users</strong></li>
-                        <li>Click <strong>Add User</strong></li>
-                        <li>Enter the user's email and select permissions</li>
-                    </ol>
-                    <p>You can grant specific permissions like console access, file management, or full control.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Troubleshooting Questions</h2>
-                
-                <div class="faq-item">
-                    <h3>My server won't start. What should I check?</h3>
-                    <p>If your server won't start:</p>
-                    <ul>
-                        <li>Check the server console for error messages</li>
-                        <li>Verify the server has enough RAM and disk space</li>
-                        <li>Ensure the startup command is correct</li>
-                        <li>Check if the game version is available</li>
-                        <li>Verify network ports are not blocked</li>
-                        <li>Check Docker logs: <code>docker compose logs</code></li>
-                    </ul>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>I can't access the panel. What's wrong?</h3>
-                    <p>If you can't access the panel:</p>
-                    <ul>
-                        <li>Verify the panel containers are running: <code>docker compose ps</code></li>
-                        <li>Check if ports 80/443 are open</li>
-                        <li>Verify your DNS is pointing to the server</li>
-                        <li>Check Nginx configuration</li>
-                        <li>Review container logs: <code>docker compose logs webserver</code></li>
-                    </ul>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I view logs?</h3>
-                    <p>To view logs:</p>
-                    <div class="code-block">
-# Panel logs<br>
-docker compose logs panel<br><br>
-# Daemon logs<br>
-docker compose logs daemon<br><br>
-# All logs<br>
-docker compose logs
-                    </div>
-                    <p>You can also view logs in the panel under <strong>Admin → Diagnostics</strong>.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How do I reset my admin password?</h3>
-                    <p>To reset your admin password:</p>
-                    <div class="code-block">
-docker exec -it hexactyl-panel php artisan p:user:reset-password your-email@example.com
-                    </div>
-                    <p>A new password will be displayed. Change it immediately after logging in.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>The panel is running slowly. How can I improve performance?</h3>
-                    <p>To improve performance:</p>
-                    <ul>
-                        <li>Increase server RAM if possible</li>
-                        <li>Enable Redis caching (included in default setup)</li>
-                        <li>Optimize MySQL settings</li>
-                        <li>Use SSD storage for better I/O</li>
-                        <li>Check for resource-intensive processes</li>
-                        <li>Consider using a CDN for static assets</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Need More Help?</h2>
-                <p>If you couldn't find your answer here, try these resources:</p>
-                
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/hexactyl-logo.svg" alt="Hexactyl" class="logo">
+                <h1>Hexactyl</h1>
+                <p class="version">v1.0.0</p>
+            </div>
+            <nav>
                 <ul>
-                    <li><strong><a href="https://github.com/hexactyl/hexactyl/issues" style="color: #f97316;">GitHub Issues</a>:</strong> Search for or report bugs</li>
-                    <li><strong><a href="https://discord.gg/hexactyl" style="color: #f97316;">Discord Community</a>:</strong> Get real-time help from the community</li>
-                    <li><strong><a href="https://github.com/hexactyl/hexactyl/discussions" style="color: #f97316;">GitHub Discussions</a>:</strong> Ask questions and share ideas</li>
+                    <li class="nav-section">Getting Started</li>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="installation.html">Installation</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li class="nav-section">Configuration</li>
+                    <li><a href="configuration.html">Configuration</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li class="nav-section">Features</li>
+                    <li><a href="server-templates.html">Server Templates</a></li>
+                    <li><a href="api.html">API Reference</a></li>
+                    <li class="nav-section">Support</li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                    <li><a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub</a></li>
                 </ul>
-                
-                <div class="tip">
-                    <strong>💡 When Asking for Help:</strong>
-                    Include your operating system, Docker version, Hexactyl version, and any error messages you're seeing. The more details you provide, the faster we can help you.
-                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Frequently Asked Questions</h1>
+            <p>This page answers common questions about installing, configuring, and troubleshooting Hexactyl.</p>
+
+            <section>
+                <h2>Installation</h2>
+
+                <h3>1. What operating systems are supported?</h3>
+                <p>Hexactyl supports Ubuntu 20.04+, Debian 11+, and CentOS 8+. Ubuntu 22.04 LTS is recommended for the best experience. Other distributions may work but are not officially tested.</p>
+
+                <h3>2. Can I install Hexactyl on the same machine as my game servers?</h3>
+                <p>Yes. The panel and the Wings daemon can run on the same machine. However, for production environments with more than a few servers, it is recommended to separate the panel onto its own machine for better security and performance.</p>
+
+                <h3>3. Do I need Docker installed on the panel machine?</h3>
+                <p>Docker is required on every machine that runs game servers (nodes). If the panel and game servers are on the same machine, Docker must be installed there. If the panel is on a separate machine, Docker is only needed on the nodes.</p>
+
+                <h3>4. How do I update Hexactyl after installation?</h3>
+                <p>Pull the latest code, install dependencies, rebuild assets, and run migrations:</p>
+                <pre><code>cd /var/www/hexactyl
+git pull origin main
+composer install --no-dev --optimize-autoloader
+yarn install && yarn build:production
+php artisan migrate --force
+sudo systemctl restart hexactyl-queue</code></pre>
+                <p>Always back up your database before running migrations on a production panel.</p>
+
+                <h3>5. Can I use MariaDB instead of MySQL?</h3>
+                <p>Yes. MariaDB 10.2+ is fully supported and works identically to MySQL. In most cases, MariaDB is the default database on Debian-based systems.</p>
             </section>
-            
+
+            <section>
+                <h2>Configuration</h2>
+
+                <h3>6. How do I change the panel URL?</h3>
+                <p>Edit the <code>APP_URL</code> variable in your <code>.env</code> file and clear caches:</p>
+                <pre><code>APP_URL=https://newdomain.com
+php artisan config:clear
+php artisan cache:clear</code></pre>
+                <p>Also update the URL in the admin panel under <strong>Settings &rarr; General</strong>.</p>
+
+                <h3>7. How do I enable HTTPS?</h3>
+                <p>Install Certbot and obtain a certificate:</p>
+                <pre><code>sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d panel.yourdomain.com</code></pre>
+                <p>Update <code>APP_URL</code> in <code>.env</code> to use <code>https://</code>. Nginx will automatically redirect HTTP to HTTPS.</p>
+
+                <h3>8. Can I use a different mail provider than Mailgun?</h3>
+                <p>Yes. Hexactyl supports any SMTP server, Mailgun, Amazon SES, and Postmark. Set the <code>MAIL_MAILER</code> variable to <code>smtp</code>, <code>mailgun</code>, <code>ses</code>, or <code>postmark</code> and configure the corresponding settings in <code>.env</code>.</p>
+
+                <h3>9. How do I set up automatic backups?</h3>
+                <p>Configure S3-compatible storage in your <code>.env</code> file (see the <a href="configuration.html">Configuration</a> page), then enable backups in <strong>Admin Panel &rarr; Settings &rarr; Backups</strong>. Users can then create manual backups or set schedules from their server management page.</p>
+
+                <h3>10. How do I reset the admin password?</h3>
+                <p>Run the user creation command with the admin email address:</p>
+                <pre><code>php artisan p:user:make --email=admin@yourdomain.com</code></pre>
+                <p>This will prompt you to set a new password for the account.</p>
+            </section>
+
+            <section>
+                <h2>Nodes and Wings</h2>
+
+                <h3>11. My node shows as &ldquo;Offline&rdquo;. What should I check?</h3>
+                <p>Verify the following:</p>
+                <ul>
+                    <li>The Wings daemon is running: <code>sudo systemctl status wings</code></li>
+                    <li>The firewall allows port <code>8080</code> (daemon) and the game server port range.</li>
+                    <li>The panel URL in <code>/etc/wings/config.yml</code> matches your <code>APP_URL</code>.</li>
+                    <li>The TLS certificate on the panel is valid and not expired.</li>
+                    <li>Check Wings logs: <code>sudo journalctl -u wings -f</code></li>
+                </ul>
+
+                <h3>12. How do I add a second node?</h3>
+                <p>In the admin panel, go to <strong>Nodes &rarr; Create New</strong>. Fill in the details, copy the auto-configuration token, and run the Wings setup command on the new machine. The process is identical to the first node.</p>
+
+                <h3>13. Can I move a server from one node to another?</h3>
+                <p>Hexactyl does not currently support live server migration between nodes. You would need to manually transfer the server files using <code>rsync</code> or SCP, then update the server record in the database to point to the new node.</p>
+
+                <h3>14. How do I update Wings?</h3>
+                <pre><code>sudo systemctl stop wings
+curl -L -o /usr/local/bin/wings "https://github.com/Hexactyl-Projects/wings/releases/latest/download/wings_linux_amd64"
+chmod u+x /usr/local/bin/wings
+sudo systemctl start wings</code></pre>
+                <p>Wings is always compatible with the latest panel version, so update both when possible.</p>
+            </section>
+
+            <section>
+                <h2>Troubleshooting</h2>
+
+                <h3>15. The panel shows a blank page or 500 error.</h3>
+                <p>Check the Laravel log at <code>storage/logs/laravel.log</code> for detailed error messages. Common causes include:</p>
+                <ul>
+                    <li>Missing or incorrect database credentials in <code>.env</code>.</li>
+                    <li>Redis not running.</li>
+                    <li>Incorrect file permissions on <code>storage/</code> and <code>bootstrap/cache/</code>.</li>
+                    <li>The <code>APP_KEY</code> is missing or invalid.</li>
+                </ul>
+                <p>Run <code>php artisan config:clear</code> and <code>php artisan cache:clear</code> to rule out cached configuration issues.</p>
+
+                <h3>16. Server creation fails with &ldquo;Docker error&rdquo;.</h3>
+                <p>Ensure Docker is installed and running on the target node. Verify that the Wings user is in the <code>docker</code> group. Check that the Docker image specified in the egg exists and is pullable. Run <code>docker pull hexactyl/yellow:latest</code> manually to test.</p>
+
+                <h3>17. How do I check if the queue worker is running?</h3>
+                <pre><code>sudo systemctl status hexactyl-queue
+php artisan queue:status</code></pre>
+                <p>If the worker is not running, start it with <code>sudo systemctl start hexactyl-queue</code>. Check <code>storage/logs/laravel.log</code> for queue-related errors.</p>
+
+                <h3>18. My users are not receiving emails.</h3>
+                <p>Test your mail configuration:</p>
+                <pre><code>php artisan mail:test youremail@example.com</code></pre>
+                <p>If emails are not received, check your SMTP credentials, ensure port 587 (or your configured port) is open, and verify that your mail server is not rate-limiting or blocking the panel&rsquo;s IP address.</p>
+
+                <h3>19. How do I enable debug mode to see detailed errors?</h3>
+                <p>Set the following in your <code>.env</code> file (never do this in production):</p>
+                <pre><code>APP_DEBUG=true
+APP_ENV=local</code></pre>
+                <p>Clear caches with <code>php artisan config:clear</code>. Debug mode will display full error pages with stack traces. Disable it immediately after troubleshooting.</p>
+
+                <h3>20. Where can I get help if none of these solutions work?</h3>
+                <p>Visit the <a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub repository</a> and open an issue with a detailed description of your problem. Include your PHP version, OS, Wings version, and relevant log excerpts. The community and maintainers are active and responsive.</p>
+            </section>
+
             <footer class="footer">
-                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
-                <p>© 2026 Hexactyl. All rights reserved.</p>
+                <p>Hexactyl Panel &copy; 2024 &mdash; Built by <a href="https://github.com/itriedcoding" target="_blank">itriedcoding</a></p>
+                <p>Licensed under the MIT License</p>
             </footer>
         </main>
     </div>

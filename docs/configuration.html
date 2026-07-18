@@ -4,511 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuration - Hexactyl Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background-color: #16213e;
-            padding: 20px;
-            border-right: 2px solid #f97316;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar h2 {
-            color: #f97316;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f97316;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul li a {
-            color: #b0b0b0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .sidebar ul li a:hover,
-        .sidebar ul li a.active {
-            background-color: #f97316;
-            color: #ffffff;
-        }
-        
-        .sidebar .section-title {
-            color: #f97316;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            flex: 1;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f97316;
-        }
-        
-        .header h1 {
-            color: #f97316;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.2em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #16213e;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-        }
-        
-        .section h2 {
-            color: #f97316;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        
-        .section h3 {
-            color: #f97316;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .section ul, .section ol {
-            margin-bottom: 15px;
-            margin-left: 20px;
-        }
-        
-        .section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f3460;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #f97316;
-        }
-        
-        .code-block {
-            background-color: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-left: 4px solid #f97316;
-        }
-        
-        .warning {
-            background-color: #ff6b35;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background-color: #0f3460;
-            color: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .tip strong {
-            color: #4ade80;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #f97316;
-            text-align: center;
-            color: #b0b0b0;
-        }
-        
-        .footer p {
-            font-size: 0.9em;
-        }
-        
-        .version {
-            color: #f97316;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>Hexactyl</h2>
-            <div class="section-title">Navigation</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="configuration.html" class="active">Configuration</a></li>
-                <li><a href="themes.html">Themes</a></li>
-                <li><a href="server-templates.html">Server Templates</a></li>
-                <li><a href="api.html">API Documentation</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-            
-            <div class="section-title">Resources</div>
-            <ul>
-                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
-                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/hexactyl-logo.svg" alt="Hexactyl" class="logo">
+                <h1>Hexactyl</h1>
+                <p class="version">v1.0.0</p>
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-section">Getting Started</li>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="installation.html">Installation</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li class="nav-section">Configuration</li>
+                    <li><a href="configuration.html" class="active">Configuration</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li class="nav-section">Features</li>
+                    <li><a href="server-templates.html">Server Templates</a></li>
+                    <li><a href="api.html">API Reference</a></li>
+                    <li class="nav-section">Support</li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+        </aside>
+
         <main class="main-content">
-            <header class="header">
-                <h1>Configuration Guide</h1>
-                <p>Configure Hexactyl for your specific needs</p>
-            </header>
-            
-            <section class="section">
+            <h1>Configuration</h1>
+            <p>Hexactyl is configured primarily through the <code>.env</code> file located at the root of the project directory. This page documents every important configuration variable and how to set up integrations.</p>
+
+            <section>
                 <h2>Environment Variables</h2>
-                <p>Hexactyl is configured through environment variables in the <code>.env</code> file. This section covers all available configuration options.</p>
-                
-                <h3>Application Settings</h3>
-                <p>Core application configuration options:</p>
-                <ul>
-                    <li><code>APP_NAME</code> - Application name displayed in the panel (default: Hexactyl)</li>
-                    <li><code>APP_ENV</code> - Environment type: <code>production</code>, <code>development</code>, or <code>testing</code></li>
-                    <li><code>APP_KEY</code> - Encryption key for secure data (generate with: <code>openssl rand -base64 32</code>)</li>
-                    <li><code>APP_URL</code> - Full URL to your panel (e.g., https://panel.yourdomain.com)</li>
-                    <li><code>APP_DEBUG</code> - Enable debug mode: <code>true</code> or <code>false</code> (never use true in production)</li>
-                    <li><code>APP_MAINTENANCE_MODE</code> - Enable maintenance mode: <code>true</code> or <code>false</code></li>
-                </ul>
-                
-                <h3>Complete Environment Example</h3>
-                <div class="code-block">
-# Application Settings<br>
-APP_NAME=Hexactyl<br>
-APP_ENV=production<br>
-APP_KEY=base64:your_generated_key_here<br>
-APP_URL=https://panel.yourdomain.com<br>
-APP_DEBUG=false<br>
-APP_MAINTENANCE_MODE=false<br><br>
-# Locale Settings<br>
-APP_LOCALE=en<br>
-APP_FALLBACK_LOCALE=en<br>
-APP_TIMEZONE=UTC<br><br>
-# Encryption<br>
-CIPHER=AES-256-CBC
-                </div>
-                
-                <div class="warning">
-                    <strong>⚠️ Security Note:</strong>
-                    Never commit your .env file to version control. Always keep your APP_KEY secret and use strong, unique passwords for all services.
-                </div>
+                <p>The <code>.env</code> file controls all core panel behavior. Below is a reference of the most important variables:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>APP_URL</code></td><td><code>http://localhost</code></td><td>The full URL of your panel (must include <code>https://</code> if SSL is enabled).</td></tr>
+                        <tr><td><code>APP_ENV</code></td><td><code>production</code></td><td>Application environment. Set to <code>local</code> for development.</td></tr>
+                        <tr><td><code>APP_KEY</code></td><td>&mdash;</td><td>Generated via <code>php artisan key:generate</code>. Do not share or commit this value.</td></tr>
+                        <tr><td><code>APP_DEBUG</code></td><td><code>false</code></td><td>Enable detailed error pages. Never leave this enabled in production.</td></tr>
+                        <tr><td><code>APP_LOCALE</code></td><td><code>en</code></td><td>Default language for the panel interface.</td></tr>
+                        <tr><td><code>DB_HOST</code></td><td><code>127.0.0.1</code></td><td>Database host address.</td></tr>
+                        <tr><td><code>DB_PORT</code></td><td><code>3306</code></td><td>Database port.</td></tr>
+                        <tr><td><code>DB_DATABASE</code></td><td><code>hexactyl</code></td><td>Database name.</td></tr>
+                        <tr><td><code>DB_USERNAME</code></td><td><code>hexactyl</code></td><td>Database user.</td></tr>
+                        <tr><td><code>DB_PASSWORD</code></td><td>&mdash;</td><td>Database password.</td></tr>
+                        <tr><td><code>CACHE_DRIVER</code></td><td><code>redis</code></td><td>Cache backend. Use <code>redis</code> or <code>memcached</code>.</td></tr>
+                        <tr><td><code>SESSION_DRIVER</code></td><td><code>redis</code></td><td>Session storage backend.</td></tr>
+                        <tr><td><code>QUEUE_DRIVER</code></td><td><code>redis</code></td><td>Queue driver for background jobs.</td></tr>
+                        <tr><td><code>REDIS_HOST</code></td><td><code>127.0.0.1</code></td><td>Redis server host.</td></tr>
+                        <tr><td><code>REDIS_PORT</code></td><td><code>6379</code></td><td>Redis server port.</td></tr>
+                        <tr><td><code>REDIS_PASSWORD</code></td><td>&mdash;</td><td>Redis authentication password (leave blank if none).</td></tr>
+                        <tr><td><code>MAIL_MAILER</code></td><td><code>smtp</code></td><td>Mail transport driver (<code>smtp</code>, <code>mailgun</code>, <code>ses</code>).</td></tr>
+                        <tr><td><code>MAIL_HOST</code></td><td><code>smtp.mailgun.org</code></td><td>SMTP server host.</td></tr>
+                        <tr><td><code>MAIL_PORT</code></td><td><code>587</code></td><td>SMTP port.</td></tr>
+                        <tr><td><code>MAIL_USERNAME</code></td><td>&mdash;</td><td>SMTP username.</td></tr>
+                        <tr><td><code>MAIL_PASSWORD</code></td><td>&mdash;</td><td>SMTP password.</td></tr>
+                        <tr><td><code>MAIL_ENCRYPTION</code></td><td><code>tls</code></td><td>Encryption type (<code>tls</code> or <code>ssl</code>).</td></tr>
+                        <tr><td><code>MAIL_FROM</code></td><td><code>panel@yourdomain.com</code></td><td>Address used for outgoing panel emails.</td></tr>
+                        <tr><td><code>MAIL_FROM_NAME</code></td><td><code>Hexactyl</code></td><td>Sender name for outgoing emails.</td></tr>
+                    </tbody>
+                </table>
             </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>Mail Configuration</h2>
-                <p>Configure email sending for user notifications, password resets, and system alerts.</p>
-                
-                <h3>SMTP Configuration</h3>
-                <p>Configure SMTP settings for email delivery:</p>
-                <div class="code-block">
-# Mail Settings<br>
-MAIL_MAILER=smtp<br>
-MAIL_HOST=smtp.gmail.com<br>
-MAIL_PORT=587<br>
-MAIL_USERNAME=your-email@gmail.com<br>
-MAIL_PASSWORD=your-app-password<br>
-MAIL_ENCRYPTION=tls<br>
-MAIL_FROM_ADDRESS=noreply@yourdomain.com<br>
-MAIL_FROM_NAME="${APP_NAME}"
-                </div>
-                
-                <h3>Supported Mail Drivers</h3>
-                <ul>
-                    <li><strong>smtp:</strong> Standard SMTP server (most common)</li>
-                    <li><strong>sendmail:</strong> PHP's mail() function</li>
-                    <li><strong>mailgun:</strong> Mailgun API integration</li>
-                    <li><strong>ses:</strong> Amazon SES integration</li>
-                    <li><strong>postmark:</strong> Postmark API integration</li>
-                    <li><strong>log:</strong> Log emails to file (development only)</li>
-                </ul>
-                
-                <h3>Testing Email Configuration</h3>
-                <p>Test your email configuration by sending a test email:</p>
-                <div class="code-block">
-# Test email configuration<br>
-docker exec hexactyl-panel php artisan tinker<br><br>
-# In tinker, run:<br>
-Mail::raw('Test email', function($message) {<br>
-&nbsp;&nbsp;$message->to('test@example.com')->subject('Test');<br>
-});
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 Gmail Users:</strong>
-                    If using Gmail, you'll need to generate an App Password. Go to Google Account → Security → 2-Step Verification → App passwords.
-                </div>
+                <p>Hexactyl sends email notifications for account registration, password resets, and server events. Configure your mail provider in the <code>.env</code> file.</p>
+                <h3>Using SMTP (Recommended)</h3>
+                <pre><code>MAIL_MAILER=smtp
+MAIL_HOST=smtp.yourdomain.com
+MAIL_PORT=587
+MAIL_USERNAME=panel@yourdomain.com
+MAIL_PASSWORD=your_smtp_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM="panel@yourdomain.com"
+MAIL_FROM_NAME=Hexactyl</code></pre>
+                <h3>Using Mailgun</h3>
+                <pre><code>MAIL_MAILER=mailgun
+MAILgun_KEY=your-mailgun-api-key
+MAILgun_DOMAIN=mg.yourdomain.com</code></pre>
+                <p>Test your mail configuration with:</p>
+                <pre><code>php artisan mail:test youremail@example.com</code></pre>
             </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>S3 Backup Storage</h2>
-                <p>Configure S3-compatible storage for automatic server backups:</p>
-                
-                <h3>AWS S3 Configuration</h3>
-                <div class="code-block">
-# S3 Backup Settings<br>
-BACKUP_DRIVER=s3<br>
-AWS_ACCESS_KEY_ID=your_access_key<br>
-AWS_SECRET_ACCESS_KEY=your_secret_key<br>
-AWS_DEFAULT_REGION=us-east-1<br>
-AWS_BUCKET=hexactyl-backups<br>
-AWS_ENDPOINT=null<br>
-AWS_USE_PATH_STYLE_ENDPOINT=false
-                </div>
-                
-                <h3>MinIO Configuration</h3>
-                <p>For self-hosted S3-compatible storage (MinIO):</p>
-                <div class="code-block">
-# MinIO S3 Configuration<br>
-BACKUP_DRIVER=s3<br>
-AWS_ACCESS_KEY_ID=your_minio_access_key<br>
-AWS_SECRET_ACCESS_KEY=your_minio_secret_key<br>
-AWS_DEFAULT_REGION=us-east-1<br>
-AWS_BUCKET=hexactyl-backups<br>
-AWS_ENDPOINT=https://minio.yourdomain.com<br>
-AWS_USE_PATH_STYLE_ENDPOINT=true
-                </div>
-                
-                <h3>Backup Settings</h3>
-                <ul>
-                    <li><code>BACKUP_DRIVER</code> - Storage driver: <code>s3</code>, <code>s3cdn</code>, or <code>local</code></li>
-                    <li><code>BACKUP_PATH</code> - Local backup path (default: /var/lib/hexactyl/backups)</li>
-                    <li><code>BACKUP_RETENTION</code> - Days to keep backups (default: 30)</li>
-                </ul>
-                
-                <h3>Local Storage Configuration</h3>
-                <div class="code-block">
-# Local Backup Settings<br>
-BACKUP_DRIVER=local<br>
-BACKUP_PATH=/var/lib/hexactyl/backups<br>
-BACKUP_RETENTION=30
-                </div>
-                
-                <div class="warning">
-                    <strong>⚠️ Important:</strong>
-                    Always ensure your backup storage has sufficient space and consider implementing a backup rotation strategy to manage storage costs.
-                </div>
+                <p>Hexactyl supports S3-compatible object storage for automatic server backups. Configure the following in your <code>.env</code>:</p>
+                <pre><code>AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=your-backup-bucket
+AWS_ENDPOINT=https://s3.amazonaws.com
+AWS_URL=https://your-backup-bucket.s3.amazonaws.com</code></pre>
+                <p>Once configured, enable backups in the admin panel under <strong>Settings &rarr; Backups</strong>. Users can then create manual or scheduled backups from their server management page.</p>
+                <p>Supported S3-compatible providers include AWS S3, DigitalOcean Spaces, MinIO, and Backblaze B2.</p>
             </section>
-            
-            <section class="section">
-                <h2>Docker Daemon Configuration</h2>
-                <p>Configure the Docker daemon for optimal performance with Hexactyl:</p>
-                
-                <h3>Docker Daemon Settings</h3>
-                <p>Edit <code>/etc/docker/daemon.json</code> to optimize Docker for game servers:</p>
-                <div class="code-block">
-{<br>
-&nbsp;&nbsp;"storage-driver": "overlay2",<br>
-&nbsp;&nbsp;"log-driver": "json-file",<br>
-&nbsp;&nbsp;"log-opts": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"max-size": "10m",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"max-file": "3"<br>
-&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;"default-ulimits": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"nofile": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Name": "nofile",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Hard": 65535,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Soft": 65535<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;"iptables": true,<br>
-&nbsp;&nbsp;"ip-forward": true<br>
-}
-                </div>
-                
-                <h3>Docker Compose Optimization</h3>
-                <p>Optimize the Docker Compose configuration for production:</p>
-                <div class="code-block">
-version: '3.8'<br><br>
-services:<br>
-&nbsp;&nbsp;panel:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;restart: unless-stopped<br>
-&nbsp;&nbsp;&nbsp;&nbsp;deploy:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resources:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;limits:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;memory: 512M<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpus: '0.5'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;logging:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;driver: "json-file"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max-size: "10m"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max-file: "3"
-                </div>
-                
-                <h3>Network Configuration</h3>
-                <p>Configure Docker networking for game server traffic:</p>
-                <div class="code-block">
-# Create a custom network<br>
-docker network create --driver bridge --subnet=172.20.0.0/16 hexactyl-network<br><br>
-# Add to docker-compose.yml<br>
-networks:<br>
-&nbsp;&nbsp;default:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;external: true<br>
-&nbsp;&nbsp;&nbsp;&nbsp;name: hexactyl-network
-                </div>
+
+            <section>
+                <h2>Docker Daemon Setup</h2>
+                <p>Each node runs the Wings daemon, which manages Docker containers for game servers. Ensure Docker is installed and the current user is in the <code>docker</code> group:</p>
+                <pre><code>sudo usermod -aG docker $USER
+newgrp docker
+docker --version</code></pre>
+                <p>Wings communicates with the panel over HTTPS. On first run, it downloads the auto-configuration from the panel and writes its config to <code>/etc/wings/config.yml</code>.</p>
+                <h3>Firewall Rules</h3>
+                <p>Open the following ports on each node:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Port</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>8080</code></td><td>Wings daemon HTTPS</td></tr>
+                        <tr><td><code>25565-25655</code></td><td>Game server port range</td></tr>
+                        <tr><td><code>2053</code></td><td>Daemon websocket (optional)</td></tr>
+                    </tbody>
+                </table>
             </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>Security Settings</h2>
-                <p>Configure security settings to protect your Hexactyl installation:</p>
-                
-                <h3>Authentication Settings</h3>
+                <p>Hexactyl includes several security features that should be enabled in production:</p>
                 <ul>
-                    <li><code>AUTHENTICATION_METHOD</code> - Login method: <code>username</code>, <code>email</code>, or <code>both</code></li>
-                    <li><code>REQUIRE_EMAIL_VERIFICATION</code> - Require email verification: <code>true</code> or <code>false</code></li>
-                    <li><code>SESSION_LIFETIME</code> - Session timeout in minutes (default: 120)</li>
-                    <li><code>MAX_LOGIN_ATTEMPTS</code> - Max failed login attempts before lockout (default: 5)</li>
-                    <li><code>LOCKOUT_TIME</code> - Account lockout duration in minutes (default: 15)</li>
+                    <li><strong>Two-Factor Authentication (2FA)</strong> &mdash; Users can enable TOTP-based 2FA in their account settings. Admins can enforce 2FA for all users in <strong>Settings &rarr; Security</strong>.</li>
+                    <li><strong>Application API Keys</strong> &mdash; API keys are scoped to specific user accounts. Only create keys for trusted integrations.</li>
+                    <li><strong>Session Encryption</strong> &mdash; Sessions are encrypted using the <code>APP_KEY</code>. Rotate this key periodically by running <code>php artisan key:generate --force</code> and re-deploying.</li>
+                    <li><strong>Content Security Policy</strong> &mdash; The panel sets CSP headers to prevent XSS. Do not disable these headers.</li>
                 </ul>
-                
-                <h3>Two-Factor Authentication</h3>
-                <p>Enable two-factor authentication for enhanced security:</p>
-                <div class="code-block">
-# 2FA Settings<br>
-TWO_FACTOR_ENABLED=true<br>
-TWO_FACTOR_GRACE_PERIOD=15<br>
-TWO_FACTOR_REMEMBER_BROWSER=true
-                </div>
-                
-                <h3>Rate Limiting</h3>
-                <p>Configure rate limiting to prevent abuse:</p>
-                <div class="code-block">
-# Rate Limiting<br>
-RATE_LIMIT_ENABLED=true<br>
-RATE_LIMIT_MAX_ATTEMPTS=5<br>
-RATE_LIMIT_DECAY_MINUTES=1
-                </div>
-                
-                <h3>Firewall Configuration</h3>
-                <p>Configure UFW firewall rules for security:</p>
-                <div class="code-block">
-# Allow SSH<br>
-ufw allow 22/tcp<br><br>
-# Allow HTTP/HTTPS<br>
-ufw allow 80/tcp<br>
-ufw allow 443/tcp<br><br>
-# Allow game server ports (as needed)<br>
-ufw allow 25565/tcp # Minecraft<br><br>
-# Enable firewall<br>
-ufw enable
-                </div>
-                
-                <div class="warning">
-                    <strong>⚠️ Critical Security:</strong>
-                    Always keep your system updated, use strong passwords, enable 2FA, and regularly review access logs for suspicious activity.
-                </div>
             </section>
-            
-            <section class="section">
-                <h2>Advanced Configuration</h2>
-                <p>Additional configuration options for advanced users:</p>
-                
-                <h3>Queue Configuration</h3>
-                <p>Configure background job processing:</p>
-                <div class="code-block">
-# Queue Settings<br>
-QUEUE_CONNECTION=redis<br>
-QUEUE_DRIVER=redis<br>
-REDIS_HOST=cache<br>
-REDIS_PORT=6379<br>
-REDIS_PASSWORD=null<br>
-REDIS_DATABASE=1
-                </div>
-                
-                <h3>Logging Configuration</h3>
-                <p>Configure application logging:</p>
-                <div class="code-block">
-# Logging Settings<br>
-LOG_CHANNEL=daily<br>
-LOG_LEVEL=info<br>
-LOG_PATH=/var/log/hexactyl
-                </div>
-                
-                <h3>File Storage</h3>
-                <p>Configure file storage for uploads:</p>
-                <div class="code-block">
-# File Storage<br>
-FILESYSTEM_DISK=local<br>
-STORAGE_ROOT=/var/lib/hexactyl/storage<br>
-MAX_UPLOAD_SIZE=102400 # in kilobytes
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 Configuration Tips:</strong>
-                    After making changes to the .env file, restart the containers with: <code>docker compose restart</code>
-                </div>
+
+            <section>
+                <h2>Rate Limiting</h2>
+                <p>Rate limiting is enabled by default to prevent abuse. The following limits are configured in the panel:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Limit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Login attempts</td><td>5 per minute</td></tr>
+                        <tr><td>Password reset requests</td><td>3 per 15 minutes</td></tr>
+                        <tr><td>API requests (authenticated)</td><td>60 per minute</td></tr>
+                        <tr><td>API requests (unauthenticated)</td><td>30 per minute</td></tr>
+                        <tr><td>Server console connections</td><td>10 per minute</td></tr>
+                    </tbody>
+                </table>
+                <p>Rate limits are enforced using Redis. If you experience issues, verify Redis is running and accessible.</p>
             </section>
-            
+
+            <section>
+                <h2>Caching Configuration</h2>
+                <p>Hexactyl uses Redis for caching, sessions, and queue processing. A properly configured Redis instance significantly improves panel performance.</p>
+                <pre><code>CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_DRIVER=redis
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=</code></pre>
+                <p>If you need to flush the cache after a configuration change:</p>
+                <pre><code>php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear</code></pre>
+                <p>For production deployments, it is recommended to run a dedicated Redis instance on each node or use a managed Redis service.</p>
+            </section>
+
+            <section>
+                <h2>Queue Worker Configuration</h2>
+                <p>Background tasks such as server creation, file backups, and notifications are processed through Redis queues. The queue worker runs as a systemd service:</p>
+                <pre><code>ExecStart=/usr/bin/php /var/www/hexactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3</code></pre>
+                <p>Monitor queue health with:</p>
+                <pre><code>php artisan queue:status
+php artisan queue:restart</code></pre>
+                <p>If tasks are stuck, restart the worker with <code>sudo systemctl restart hexactyl-queue</code>.</p>
+            </section>
+
             <footer class="footer">
-                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
-                <p>© 2026 Hexactyl. All rights reserved.</p>
+                <p>Hexactyl Panel &copy; 2024 &mdash; Built by <a href="https://github.com/itriedcoding" target="_blank">itriedcoding</a></p>
+                <p>Licensed under the MIT License</p>
             </footer>
         </main>
     </div>

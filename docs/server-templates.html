@@ -4,451 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Templates - Hexactyl Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background-color: #16213e;
-            padding: 20px;
-            border-right: 2px solid #f97316;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar h2 {
-            color: #f97316;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f97316;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul li a {
-            color: #b0b0b0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .sidebar ul li a:hover,
-        .sidebar ul li a.active {
-            background-color: #f97316;
-            color: #ffffff;
-        }
-        
-        .sidebar .section-title {
-            color: #f97316;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            flex: 1;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f97316;
-        }
-        
-        .header h1 {
-            color: #f97316;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.2em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #16213e;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-        }
-        
-        .section h2 {
-            color: #f97316;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        
-        .section h3 {
-            color: #f97316;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .section ul, .section ol {
-            margin-bottom: 15px;
-            margin-left: 20px;
-        }
-        
-        .section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f3460;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #f97316;
-        }
-        
-        .code-block {
-            background-color: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-left: 4px solid #f97316;
-        }
-        
-        .warning {
-            background-color: #ff6b35;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background-color: #0f3460;
-            color: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .tip strong {
-            color: #4ade80;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #f97316;
-            text-align: center;
-            color: #b0b0b0;
-        }
-        
-        .footer p {
-            font-size: 0.9em;
-        }
-        
-        .version {
-            color: #f97316;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>Hexactyl</h2>
-            <div class="section-title">Navigation</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="configuration.html">Configuration</a></li>
-                <li><a href="themes.html">Themes</a></li>
-                <li><a href="server-templates.html" class="active">Server Templates</a></li>
-                <li><a href="api.html">API Documentation</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-            
-            <div class="section-title">Resources</div>
-            <ul>
-                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
-                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/hexactyl-logo.svg" alt="Hexactyl" class="logo">
+                <h1>Hexactyl</h1>
+                <p class="version">v1.0.0</p>
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-section">Getting Started</li>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="installation.html">Installation</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li class="nav-section">Configuration</li>
+                    <li><a href="configuration.html">Configuration</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li class="nav-section">Features</li>
+                    <li><a href="server-templates.html" class="active">Server Templates</a></li>
+                    <li><a href="api.html">API Reference</a></li>
+                    <li class="nav-section">Support</li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub</a></li>
+                </ul>
+            </nav>
+        </aside>
+
         <main class="main-content">
-            <header class="header">
-                <h1>Server Templates</h1>
-                <p>Create and manage server templates for quick deployment</p>
-            </header>
-            
-            <section class="section">
+            <h1>Server Templates</h1>
+            <p>Server templates in Hexactyl allow administrators to define pre-configured server blueprints. Instead of manually entering startup commands, environment variables, and resource limits every time a new server is created, a template encapsulates all of these settings in a reusable package.</p>
+
+            <section>
                 <h2>What Are Server Templates?</h2>
-                <p>Server templates are pre-configured server setups that you can save and reuse. Instead of manually configuring each new server with the same settings, you can create a template once and deploy it multiple times with just a few clicks.</p>
-                
-                <p>Templates are perfect for:</p>
+                <p>A server template is a saved configuration that includes:</p>
                 <ul>
-                    <li><strong>Standardized Configurations:</strong> Ensure all servers of a type have identical settings</li>
-                    <li><strong>Quick Deployment:</strong> Spin up new servers in seconds instead of minutes</li>
-                    <li><strong>Reduced Errors:</strong> Eliminate manual configuration mistakes</li>
-                    <li><strong>Team Management:</strong> Allow team members to deploy servers without full admin knowledge</li>
-                    <li><strong>Game Updates:</strong> Quickly deploy servers with the latest game version</li>
+                    <li><strong>Nest and Egg</strong> &mdash; The game type (e.g., Minecraft Paper, Rust, CS2).</li>
+                    <li><strong>Startup Command</strong> &mdash; The default command used to launch the server.</li>
+                    <li><strong>Default Environment Variables</strong> &mdash; Pre-filled variables such as <code>SERVER_MEMORY</code>, <code>MAX_PLAYERS</code>, or <code>MOTD</code>.</li>
+                    <li><strong>Resource Limits</strong> &mdash; Default memory, disk, CPU, and I/O allocations.</li>
+                    <li><strong>Docker Image</strong> &mdash; The container image used to run the server.</li>
+                    <li><strong>Allocations</strong> &mdash; Default port allocation rules.</li>
                 </ul>
-                
-                <h3>Template Components</h3>
-                <p>Each template can include:</p>
-                <ul>
-                    <li><strong>Game Type:</strong> Minecraft, ARK, Rust, etc.</li>
-                    <li><strong>Game Version:</strong> Specific version or latest</li>
-                    <li><strong>Startup Command:</strong> Custom startup parameters</li>
-                    <li><strong>Environment Variables:</strong> Game-specific settings</li>
-                    <li><strong>Resource Limits:</strong> CPU, RAM, and disk allocations</li>
-                    <li><strong>Default Files:</strong> Configuration files to include</li>
-                    <li><strong>Port Allocations:</strong> Network port mappings</li>
-                </ul>
+                <p>Templates are stored in the database and are available to all administrators. They can be created, edited, duplicated, or deleted at any time.</p>
             </section>
-            
-            <section class="section">
-                <h2>Creating Templates</h2>
-                <p>Learn how to create your own server templates:</p>
-                
-                <h3>Via Panel Interface</h3>
+
+            <section>
+                <h2>Creating a Template</h2>
+                <p>To create a new server template:</p>
                 <ol>
-                    <li>Navigate to <strong>Admin Panel → Templates</strong></li>
-                    <li>Click <strong>Create New Template</strong></li>
-                    <li>Fill in the template details:
-                        <ul>
-                            <li><strong>Template Name:</strong> Descriptive name (e.g., "Minecraft 1.20.4 Survival")</li>
-                            <li><strong>Description:</strong> What this template is for</li>
-                            <li><strong>Visibility:</strong> Public (all users) or Private (admin only)</li>
-                        </ul>
-                    </li>
-                    <li>Configure the server settings</li>
-                    <li>Click <strong>Save Template</strong></li>
+                    <li>Navigate to <strong>Admin Panel &rarr; Server Templates</strong>.</li>
+                    <li>Click <strong>Create New Template</strong>.</li>
+                    <li>Provide a <strong>Template Name</strong> (e.g., &ldquo;Minecraft Survival&rdquo;).</li>
+                    <li>Select the <strong>Nest</strong> and <strong>Egg</strong> this template applies to.</li>
+                    <li>Configure the default startup command. You can use variable placeholders enclosed in curly braces (e.g., <code>{SERVER_MEMORY}</code>).</li>
+                    <li>Set default values for each environment variable. Mark required variables as mandatory.</li>
+                    <li>Define resource defaults: memory, disk, CPU, and I/O limits.</li>
+                    <li>Select the default Docker image for this template.</li>
+                    <li>Click <strong>Create Template</strong> to save.</li>
                 </ol>
-                
-                <h3>Creating from Existing Server</h3>
-                <p>You can create a template from an existing server:</p>
-                <ol>
-                    <li>Go to the server you want to use as a template</li>
-                    <li>Click <strong>Actions → Create Template</strong></li>
-                    <li>Review the settings that will be saved</li>
-                    <li>Name your template and add a description</li>
-                    <li>Click <strong>Create Template</strong></li>
-                </ol>
-                
-                <h3>Template Configuration Example</h3>
-                <div class="code-block">
-# Example Minecraft Template Configuration<br>
-{<br>
-&nbsp;&nbsp;"name": "Minecraft 1.20.4 Survival",<br>
-&nbsp;&nbsp;"description": "Standard Minecraft survival server with popular plugins",<br>
-&nbsp;&nbsp;"egg_id": 1,<br>
-&nbsp;&nbsp;"docker_image": "ghcr.io/parkervcp/yolks:minecraft_java",<br>
-&nbsp;&nbsp;"startup": "java -Xms${SERVER_MEMORY}M -Xmx${SERVER_MEMORY}M -jar server.jar nogui",<br>
-&nbsp;&nbsp;"environment": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"SERVER_MEMORY": "2048",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"MC_VERSION": "1.20.4",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"EULA": "TRUE"<br>
-&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;"limits": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"memory": 2048,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"cpu": 100,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"disk": 10240<br>
-&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;"allocation": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"default": 25565<br>
-&nbsp;&nbsp;}<br>
-}
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 Template Tips:</strong>
-                    Give your templates descriptive names so you can easily identify them. Include the game version in the name for quick reference.
-                </div>
+                <p>Once created, the template appears in the templates list and is available during server creation.</p>
             </section>
-            
-            <section class="section">
-                <h2>Using Templates</h2>
-                <p>Deploy servers quickly using your saved templates:</p>
-                
-                <h3>Deploying from Template</h3>
+
+            <section>
+                <h2>Using Templates to Deploy Servers</h2>
+                <p>When creating a new server, administrators can select a template to pre-fill all configuration fields:</p>
                 <ol>
-                    <li>Navigate to <strong>Servers → Create New Server</strong></li>
-                    <li>Select <strong>From Template</strong> option</li>
-                    <li>Choose your template from the list</li>
-                    <li>Customize settings if needed (name, node, allocation)</li>
-                    <li>Click <strong>Create Server</strong></li>
+                    <li>Navigate to <strong>Servers &rarr; Create New</strong>.</li>
+                    <li>In the <strong>Template</strong> dropdown, select the desired template.</li>
+                    <li>All fields (startup command, environment variables, resource limits, Docker image) will be populated automatically.</li>
+                    <li>Adjust any values as needed for this specific server instance.</li>
+                    <li>Select the target node, assign a user, and complete the server creation.</li>
                 </ol>
-                
-                <h3>Template Selection</h3>
-                <p>When creating a new server, you'll see available templates:</p>
-                <ul>
-                    <li><strong>My Templates:</strong> Templates you created</li>
-                    <li><strong>Public Templates:</strong> Templates shared by admins</li>
-                    <li><strong>Game Templates:</strong> Official templates for each game type</li>
-                </ul>
-                
-                <h3>Overriding Template Settings</h3>
-                <p>You can modify template settings before deployment:</p>
-                <ul>
-                    <li><strong>Server Name:</strong> Give your server a unique name</li>
-                    <li><strong>Node:</strong> Choose which node to deploy to</li>
-                    <li><strong>Resources:</strong> Adjust CPU, RAM, or disk limits</li>
-                    <li><strong>Environment:</strong> Modify game-specific variables</li>
-                    <li><strong>Startup:</strong> Customize the startup command</li>
-                </ul>
-                
-                <div class="warning">
-                    <strong>⚠️ Note:</strong>
-                    Overriding template settings only affects the new server. The original template remains unchanged for future deployments.
-                </div>
+                <p>Templates only provide defaults. You can override any field before creating the server.</p>
+                <h3>Example Workflow</h3>
+                <pre><code># Template: "Minecraft Survival"
+Nest: Minecraft
+Egg: Paper
+Startup: java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -jar server.jar nogui
+Default Memory: 2048 MB
+Default Disk: 10240 MB
+Default Image: hexactyl/yellow:latest
+
+# When creating a server:
+1. Select "Minecraft Survival" template
+2. Server name: "Survival Server #1"
+3. User: john@example.com
+4. Node: US-East-1
+5. Click Create</code></pre>
+                <p>The server will be created with all template settings applied.</p>
             </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>Managing Templates</h2>
-                <p>Keep your templates organized and up to date:</p>
-                
-                <h3>Editing Templates</h3>
-                <ol>
-                    <li>Go to <strong>Admin Panel → Templates</strong></li>
-                    <li>Find the template you want to edit</li>
-                    <li>Click <strong>Edit</strong></li>
-                    <li>Make your changes</li>
-                    <li>Click <strong>Save Changes</strong></li>
-                </ol>
-                
-                <h3>Deleting Templates</h3>
-                <p>Remove templates you no longer need:</p>
-                <ol>
-                    <li>Navigate to the template</li>
-                    <li>Click <strong>Actions → Delete</strong></li>
-                    <li>Confirm the deletion</li>
-                </ol>
-                
-                <div class="warning">
-                    <strong>⚠️ Caution:</strong>
-                    Deleting a template does not affect servers already created from it. However, you cannot use the template for new deployments.
-                </div>
-                
-                <h3>Template Organization</h3>
-                <p>Keep templates organized with these strategies:</p>
+                <p>The templates list provides options to manage your saved templates:</p>
                 <ul>
-                    <li><strong>Naming Convention:</strong> Use consistent naming (e.g., "Game - Type - Version")</li>
-                    <li><strong>Descriptions:</strong> Add detailed descriptions for team members</li>
-                    <li><strong>Categories:</strong> Group templates by game or purpose</li>
-                    <li><strong>Visibility:</strong> Set appropriate visibility levels</li>
+                    <li><strong>Edit</strong> &mdash; Modify any field of an existing template. Changes only affect new servers; existing servers are not modified.</li>
+                    <li><strong>Duplicate</strong> &mdash; Create a copy of a template with a new name. Useful for creating variations of an existing setup.</li>
+                    <li><strong>Delete</strong> &mdash; Remove a template. This does not affect servers created from that template.</li>
+                    <li><strong>Reorder</strong> &mdash; Drag and drop templates to change their display order in the dropdown.</li>
                 </ul>
-                
-                <h3>Template Best Practices</h3>
-                <ul>
-                    <li>Test templates before making them public</li>
-                    <li>Update templates when game versions change</li>
-                    <li>Document any special configuration requirements</li>
-                    <li>Back up important templates regularly</li>
-                    <li>Review and clean up unused templates</li>
-                </ul>
-                
-                <div class="tip">
-                    <strong>💡 Pro Tip:</strong>
-                    Create a "master" template for each game type, then clone and customize it for specific server configurations. This maintains consistency while allowing flexibility.
-                </div>
+                <p>Templates are stored in the <code>server_templates</code> database table. You can also manage them via the API.</p>
             </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>Template API</h2>
-                <p>Manage templates programmatically using the API:</p>
-                
+                <p>Server templates can be managed programmatically through the Hexactyl API. This is useful for automating template creation from external tools or CI/CD pipelines.</p>
                 <h3>List Templates</h3>
-                <div class="code-block">
-GET /api/application/templates<br><br>
-# Response<br>
-{<br>
-&nbsp;&nbsp;"data": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Minecraft Survival",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "Standard Minecraft server",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"visibility": "public"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;]<br>
-}
-                </div>
-                
+                <pre><code>GET /api/client/templates
+
+Response:
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Minecraft Survival",
+            "nest_id": 1,
+            "egg_id": 5,
+            "startup": "java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -jar server.jar nogui",
+            "docker_image": "hexactyl/yellow:latest",
+            "memory": 2048,
+            "disk": 10240,
+            "created_at": "2024-01-15T10:30:00Z"
+        }
+    ]
+}</code></pre>
+
                 <h3>Create Template</h3>
-                <div class="code-block">
-POST /api/application/templates<br><br>
-{<br>
-&nbsp;&nbsp;"name": "New Template",<br>
-&nbsp;&nbsp;"description": "Template description",<br>
-&nbsp;&nbsp;"egg_id": 1,<br>
-&nbsp;&nbsp;"docker_image": "ghcr.io/parkervcp/yolks:minecraft_java",<br>
-&nbsp;&nbsp;"startup": "java -jar server.jar nogui",<br>
-&nbsp;&nbsp;"environment": {},<br>
-&nbsp;&nbsp;"limits": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"memory": 2048,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"cpu": 100,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"disk": 10240<br>
-&nbsp;&nbsp;}<br>
+                <pre><code>POST /api/client/templates
+
+{
+    "name": "Rust Server",
+    "nest_id": 2,
+    "egg_id": 12,
+    "startup": "./rust_server -batchmode +server.port {SERVER_PORT} +server.identity {SERVER_IDENTITY}",
+    "docker_image": "hexactyl/rust:latest",
+    "memory": 4096,
+    "disk": 20480,
+    "environment": {
+        "SERVER_PORT": "28015",
+        "SERVER_IDENTITY": "my_server",
+        "SERVER_NAME": "My Rust Server"
+    }
 }
-                </div>
-                
+
+Response:
+{
+    "data": {
+        "id": 3,
+        "name": "Rust Server",
+        "nest_id": 2,
+        "egg_id": 12,
+        "created_at": "2024-03-20T14:00:00Z"
+    }
+}</code></pre>
+
                 <h3>Delete Template</h3>
-                <div class="code-block">
-DELETE /api/application/templates/{id}
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 API Tip:</strong>
-                    Use the API to automate template management and integrate with your deployment workflows. See the <a href="api.html" style="color: #4ade80;">API Documentation</a> for full details.
-                </div>
+                <pre><code>DELETE /api/client/templates/{id}
+
+Response: 204 No Content</code></pre>
+                <p>Refer to the <a href="api.html">API Reference</a> page for full authentication details and additional endpoints.</p>
             </section>
-            
+
             <footer class="footer">
-                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
-                <p>© 2026 Hexactyl. All rights reserved.</p>
+                <p>Hexactyl Panel &copy; 2024 &mdash; Built by <a href="https://github.com/itriedcoding" target="_blank">itriedcoding</a></p>
+                <p>Licensed under the MIT License</p>
             </footer>
         </main>
     </div>

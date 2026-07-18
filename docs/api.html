@@ -3,705 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Documentation - Hexactyl Documentation</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background-color: #16213e;
-            padding: 20px;
-            border-right: 2px solid #f97316;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar h2 {
-            color: #f97316;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f97316;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
-        
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul li a {
-            color: #b0b0b0;
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        .sidebar ul li a:hover,
-        .sidebar ul li a.active {
-            background-color: #f97316;
-            color: #ffffff;
-        }
-        
-        .sidebar .section-title {
-            color: #f97316;
-            font-size: 1.1em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            flex: 1;
-        }
-        
-        .header {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #f97316;
-        }
-        
-        .header h1 {
-            color: #f97316;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            color: #b0b0b0;
-            font-size: 1.2em;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background-color: #16213e;
-            border-radius: 8px;
-            border-left: 4px solid #f97316;
-        }
-        
-        .section h2 {
-            color: #f97316;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        
-        .section h3 {
-            color: #f97316;
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            margin-top: 20px;
-        }
-        
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .section ul, .section ol {
-            margin-bottom: 15px;
-            margin-left: 20px;
-        }
-        
-        .section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0f3460;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #f97316;
-        }
-        
-        .code-block {
-            background-color: #0f3460;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-            margin: 15px 0;
-            border-left: 4px solid #f97316;
-        }
-        
-        .warning {
-            background-color: #ff6b35;
-            color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .tip {
-            background-color: #0f3460;
-            color: #e0e0e0;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .tip strong {
-            color: #4ade80;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .method {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-right: 10px;
-        }
-        
-        .method-get { background-color: #22c55e; color: #ffffff; }
-        .method-post { background-color: #3b82f6; color: #ffffff; }
-        .method-put { background-color: #f59e0b; color: #ffffff; }
-        .method-delete { background-color: #ef4444; color: #ffffff; }
-        
-        .endpoint {
-            background-color: #1a1a2e;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            border: 1px solid #374151;
-        }
-        
-        .endpoint-header {
-            margin-bottom: 10px;
-        }
-        
-        .endpoint-path {
-            font-family: 'Courier New', Courier, monospace;
-            color: #f97316;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #f97316;
-            text-align: center;
-            color: #b0b0b0;
-        }
-        
-        .footer p {
-            font-size: 0.9em;
-        }
-        
-        .version {
-            color: #f97316;
-            font-weight: bold;
-        }
-    </style>
+    <title>API Reference - Hexactyl Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <h2>Hexactyl</h2>
-            <div class="section-title">Navigation</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="installation.html">Installation</a></li>
-                <li><a href="configuration.html">Configuration</a></li>
-                <li><a href="themes.html">Themes</a></li>
-                <li><a href="server-templates.html">Server Templates</a></li>
-                <li><a href="api.html" class="active">API Documentation</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-            
-            <div class="section-title">Resources</div>
-            <ul>
-                <li><a href="https://github.com/hexactyl" target="_blank">GitHub</a></li>
-                <li><a href="https://discord.gg/hexactyl" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-        
-        <main class="main-content">
-            <header class="header">
-                <h1>API Documentation</h1>
-                <p>Integrate with Hexactyl using our comprehensive REST API</p>
-            </header>
-            
-            <section class="section">
-                <h2>Overview</h2>
-                <p>The Hexactyl API allows you to interact with your panel programmatically. Use it to automate server management, integrate with external tools, or build custom applications.</p>
-                
-                <h3>Base URL</h3>
-                <p>All API endpoints are relative to your panel URL:</p>
-                <div class="code-block">
-https://your-panel-url.com/api
-                </div>
-                
-                <h3>API Versions</h3>
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/hexactyl-logo.svg" alt="Hexactyl" class="logo">
+                <h1>Hexactyl</h1>
+                <p class="version">v1.0.0</p>
+            </div>
+            <nav>
                 <ul>
-                    <li><strong>Client API:</strong> <code>/api/client</code> - User-facing endpoints</li>
-                    <li><strong>Application API:</strong> <code>/api/application</code> - Admin-level endpoints</li>
-                    <li><strong>Remote API:</strong> <code>/api/remote</code> - Daemon communication</li>
+                    <li class="nav-section">Getting Started</li>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="installation.html">Installation</a></li>
+                    <li><a href="getting-started.html">Getting Started</a></li>
+                    <li class="nav-section">Configuration</li>
+                    <li><a href="configuration.html">Configuration</a></li>
+                    <li><a href="themes.html">Themes</a></li>
+                    <li class="nav-section">Features</li>
+                    <li><a href="server-templates.html">Server Templates</a></li>
+                    <li><a href="api.html" class="active">API Reference</a></li>
+                    <li class="nav-section">Support</li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="https://github.com/Hexactyl-Projects/hexactyl" target="_blank">GitHub</a></li>
                 </ul>
-                
-                <h3>Response Format</h3>
-                <p>All responses are returned in JSON format:</p>
-                <div class="code-block">
-{<br>
-&nbsp;&nbsp;"data": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;// Response data here<br>
-&nbsp;&nbsp;},<br>
-&nbsp;&nbsp;"meta": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"pagination": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": 100,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"per_page": 50,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"current_page": 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;}<br>
-}
-                </div>
-            </section>
-            
-            <section class="section">
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>API Reference</h1>
+            <p>Hexactyl provides a full REST API for building custom integrations, bots, and automation workflows. All endpoints require authentication using API key pairs generated through the panel.</p>
+
+            <section>
                 <h2>Authentication</h2>
-                <p>Authenticate your API requests using API keys:</p>
-                
+                <p>Hexactyl uses API key pairs for authentication. Each key consists of a public key and a secret key. The public key identifies the key; the secret key is used to sign requests.</p>
                 <h3>Generating API Keys</h3>
                 <ol>
-                    <li>Log in to your Hexactyl panel</li>
-                    <li>Go to <strong>Account Settings → API Keys</strong></li>
-                    <li>Click <strong>Create New Key</strong></li>
-                    <li>Give your key a descriptive name</li>
-                    <li>Set an expiration date (optional but recommended)</li>
-                    <li>Select the permissions (scopes) for this key</li>
-                    <li>Click <strong>Create</strong> and copy your key</li>
+                    <li>Log in to the panel and go to <strong>Account Settings &rarr; API Credentials</strong>.</li>
+                    <li>Click <strong>Create New</strong> and enter a label for the key.</li>
+                    <li>Copy both the <strong>API Key</strong> and <strong>API Secret</strong>. The secret is only shown once.</li>
                 </ol>
-                
-                <div class="warning">
-                    <strong>⚠️ Security Warning:</strong>
-                    API keys are only shown once. Copy it immediately and store it securely. Never commit API keys to version control.
-                </div>
-                
-                <h3>Using API Keys</h3>
-                <p>Include your API key in the <code>Authorization</code> header:</p>
-                <div class="code-block">
-curl -H "Authorization: Bearer YOUR_API_KEY" \<br>
-&nbsp;&nbsp;https://your-panel-url.com/api/client/servers
-                </div>
-                
-                <h3>API Key Scopes</h3>
-                <p>Available permission scopes:</p>
-                <ul>
-                    <li><code>client</code> - Access client API endpoints</li>
-                    <li><code>application</code> - Access application API endpoints</li>
-                    <li><code>remote</code> - Access remote API endpoints</li>
-                    <li><code>servers.*</code> - Full server management access</li>
-                    <li><code>users.*</code> - Full user management access</li>
-                </ul>
-                
-                <h3>Example Request</h3>
-                <div class="code-block">
-# List all servers<br>
-curl -H "Authorization: Bearer abc123..." \<br>
-&nbsp;&nbsp;https://panel.example.com/api/client/servers<br><br>
-# Response<br>
-{<br>
-&nbsp;&nbsp;"data": [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": 1,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "My Minecraft Server",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status": "running"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;]<br>
+                <h3>Making Authenticated Requests</h3>
+                <p>All API requests must include the following headers:</p>
+                <pre><code>Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json
+Accept: Application/vnd.hexactyl.v1+json</code></pre>
+                <p>The API base URL is:</p>
+                <pre><code>https://yourpanel.example.com/api/client</code></pre>
+                <p>For application-level (admin) endpoints, use the <code>/api/application</code> prefix and include the key in the <code>X-Auth-Key</code> header.</p>
+            </section>
+
+            <section>
+                <h2>API Endpoints</h2>
+                <p>Below is a summary of available endpoint groups. Each group provides CRUD operations for its resource.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Group</th>
+                            <th>Endpoints</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>User Account</strong></td><td><code>GET /api/client/account</code></td><td>Retrieve the authenticated user&rsquo;s account information.</td></tr>
+                        <tr><td><strong>User Account</strong></td><td><code>PATCH /api/client/account</code></td><td>Update account details (name, email, password).</td></tr>
+                        <tr><td><strong>Servers</strong></td><td><code>GET /api/client/servers</code></td><td>List all servers accessible by the authenticated user.</td></tr>
+                        <tr><td><strong>Servers</strong></td><td><code>GET /api/client/servers/{id}</code></td><td>Get details of a specific server.</td></tr>
+                        <tr><td><strong>Servers</strong></td><td><code>GET /api/client/servers/{id}/resources</code></td><td>Get current resource usage for a server.</td></tr>
+                        <tr><td><strong>Servers</strong></td><td><code>POST /api/client/servers/{id}/power</code></td><td>Start, stop, or restart a server.</td></tr>
+                        <tr><td><strong>Servers</strong></td><td><code>POST /api/client/servers/{id}/command</code></td><td>Send a command to the server console.</td></tr>
+                        <tr><td><strong>Files</strong></td><td><code>GET /api/client/servers/{id}/files</code></td><td>List files in a directory.</td></tr>
+                        <tr><td><strong>Files</strong></td><td><code>GET /api/client/servers/{id}/files/download</code></td><td>Download a file.</td></tr>
+                        <tr><td><strong>Files</strong></td><td><code>PUT /api/client/servers/{id}/files</code></td><td>Upload a file.</td></tr>
+                        <tr><td><strong>Files</strong></td><td><code>POST /api/client/servers/{id}/files/write</code></td><td>Write content to a file.</td></tr>
+                        <tr><td><strong>Databases</strong></td><td><code>GET /api/client/servers/{id}/databases</code></td><td>List databases for a server.</td></tr>
+                        <tr><td><strong>Databases</strong></td><td><code>POST /api/client/servers/{id}/databases</code></td><td>Create a new database.</td></tr>
+                        <tr><td><strong>Databases</strong></td><td><code>DELETE /api/client/servers/{id}/databases/{databaseId}</code></td><td>Delete a database.</td></tr>
+                        <tr><td><strong>Backups</strong></td><td><code>GET /api/client/servers/{id}/backups</code></td><td>List backups for a server.</td></tr>
+                        <tr><td><strong>Backups</strong></td><td><code>POST /api/client/servers/{id}/backups</code></td><td>Create a new backup.</td></tr>
+                        <tr><td><strong>Backups</strong></td><td><code>DELETE /api/client/servers/{id}/backups/{backupId}</code></td><td>Delete a backup.</td></tr>
+                        <tr><td><strong>Users</strong></td><td><code>GET /api/application/users</code></td><td>List all users (admin only).</td></tr>
+                        <tr><td><strong>Users</strong></td><td><code>POST /api/application/users</code></td><td>Create a new user (admin only).</td></tr>
+                        <tr><td><strong>Nodes</strong></td><td><code>GET /api/application/nodes</code></td><td>List all nodes (admin only).</td></tr>
+                        <tr><td><strong>Nodes</strong></td><td><code>GET /api/application/nodes/{id}</code></td><td>Get node details (admin only).</td></tr>
+                        <tr><td><strong>Locations</strong></td><td><code>GET /api/application/locations</code></td><td>List all locations (admin only).</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Request and Response Examples</h2>
+                <h3>List Servers</h3>
+                <pre><code># Request
+GET /api/client/servers
+Authorization: Bearer abc123def456
+Content-Type: application/json
+
+# Response (200 OK)
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Survival Server",
+            "node": "US-East-1",
+            "status": "running",
+            "memory": {
+                "used": 1024,
+                "total": 2048,
+                "unit": "MB"
+            },
+            "disk": {
+                "used": 5120,
+                "total": 10240,
+                "unit": "MB"
+            },
+            "cpu": {
+                "used": 35,
+                "total": 100,
+                "unit": "%"
+            }
+        }
+    ],
+    "meta": {
+        "current_page": 1,
+        "total_pages": 1,
+        "per_page": 50
+    }
+}</code></pre>
+
+                <h3>Send Console Command</h3>
+                <pre><code># Request
+POST /api/client/servers/1/command
+Authorization: Bearer abc123def456
+Content-Type: application/json
+
+{
+    "command": "say Server restarting in 5 minutes!"
 }
-                </div>
+
+# Response (204 No Content)</code></pre>
+
+                <h3>Create Backup</h3>
+                <pre><code># Request
+POST /api/client/servers/1/backups
+Authorization: Bearer abc123def456
+Content-Type: application/json
+
+{
+    "name": "Pre-update backup",
+    "ignore_files": true
+}
+
+# Response (201 Created)
+{
+    "data": {
+        "id": 1,
+        "name": "Pre-update backup",
+        "status": "processing",
+        "size": 0,
+        "created_at": "2024-03-20T15:00:00Z",
+        "completed_at": null
+    }
+}</code></pre>
+
+                <h3>Upload File</h3>
+                <pre><code># Request
+PUT /api/client/servers/1/files/upload
+Authorization: Bearer abc123def456
+Content-Type: multipart/form-data
+
+file: server.properties
+
+# Response (201 Created)
+{
+    "data": {
+        "name": "server.properties",
+        "path": "/",
+        "size": 1248,
+        "created_at": "2024-03-20T15:05:00Z",
+        "modified_at": "2024-03-20T15:05:00Z"
+    }
+}</code></pre>
             </section>
-            
-            <section class="section">
-                <h2>Client API Endpoints</h2>
-                <p>Endpoints for regular users to manage their servers:</p>
-                
-                <h3>Servers</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/client/servers</span>
-                    </div>
-                    <p>List all servers the authenticated user has access to.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/client/servers/{id}</span>
-                    </div>
-                    <p>Get details about a specific server.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/command</span>
-                    </div>
-                    <p>Send a command to a server console.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/power</span>
-                    </div>
-                    <p>Control server power state (start, stop, restart, kill).</p>
-                </div>
-                
-                <h3>Files</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/files</span>
-                    </div>
-                    <p>List files in a server's directory.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/files/contents</span>
-                    </div>
-                    <p>Read the contents of a file.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/files/upload</span>
-                    </div>
-                    <p>Upload files to a server (multipart/form-data).</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-put">PUT</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/files/write</span>
-                    </div>
-                    <p>Write content to a file.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-delete">DELETE</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/files/delete</span>
-                    </div>
-                    <p>Delete files or directories.</p>
-                </div>
-                
-                <h3>Databases</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/databases</span>
-                    </div>
-                    <p>List all databases for a server.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/databases</span>
-                    </div>
-                    <p>Create a new database for a server.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-delete">DELETE</span>
-                        <span class="endpoint-path">/api/client/servers/{id}/databases/{databaseId}</span>
-                    </div>
-                    <p>Delete a database.</p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Application API Endpoints</h2>
-                <p>Admin-level endpoints for panel management:</p>
-                
-                <h3>Users</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/application/users</span>
-                    </div>
-                    <p>List all users on the panel.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/application/users</span>
-                    </div>
-                    <p>Create a new user.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-put">PUT</span>
-                        <span class="endpoint-path">/api/application/users/{id}</span>
-                    </div>
-                    <p>Update user details.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-delete">DELETE</span>
-                        <span class="endpoint-path">/api/application/users/{id}</span>
-                    </div>
-                    <p>Delete a user.</p>
-                </div>
-                
-                <h3>Nodes</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/application/nodes</span>
-                    </div>
-                    <p>List all nodes in the panel.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/application/nodes</span>
-                    </div>
-                    <p>Create a new node.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/application/nodes/{id}</span>
-                    </div>
-                    <p>Get node details including system statistics.</p>
-                </div>
-                
-                <h3>Servers</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/application/servers</span>
-                    </div>
-                    <p>List all servers on the panel.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/application/servers</span>
-                    </div>
-                    <p>Create a new server.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-put">PUT</span>
-                        <span class="endpoint-path">/api/application/servers/{id}</span>
-                    </div>
-                    <p>Update server details.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-delete">DELETE</span>
-                        <span class="endpoint-path">/api/application/servers/{id}</span>
-                    </div>
-                    <p>Terminate and delete a server.</p>
-                </div>
-                
-                <h3>Templates</h3>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-get">GET</span>
-                        <span class="endpoint-path">/api/application/templates</span>
-                    </div>
-                    <p>List all server templates.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-post">POST</span>
-                        <span class="endpoint-path">/api/application/templates</span>
-                    </div>
-                    <p>Create a new server template.</p>
-                </div>
-                
-                <div class="endpoint">
-                    <div class="endpoint-header">
-                        <span class="method method-delete">DELETE</span>
-                        <span class="endpoint-path">/api/application/templates/{id}</span>
-                    </div>
-                    <p>Delete a server template.</p>
-                </div>
-            </section>
-            
-            <section class="section">
+
+            <section>
                 <h2>Rate Limiting</h2>
-                <p>The API implements rate limiting to prevent abuse and ensure fair usage:</p>
-                
-                <h3>Rate Limit Headers</h3>
-                <p>Every API response includes rate limit information:</p>
-                <div class="code-block">
-X-RateLimit-Limit: 60<br>
-X-RateLimit-Remaining: 59<br>
-X-RateLimit-Reset: 1640995200
-                </div>
-                
-                <h3>Limits by Endpoint</h3>
-                <ul>
-                    <li><strong>Client API:</strong> 60 requests per minute</li>
-                    <li><strong>Application API:</strong> 30 requests per minute</li>
-                    <li><strong>Authentication:</strong> 5 requests per minute</li>
-                </ul>
-                
-                <h3>Handling Rate Limits</h3>
-                <p>When you exceed the rate limit, you'll receive a 429 response:</p>
-                <div class="code-block">
-{<br>
-&nbsp;&nbsp;"error": "Too Many Requests",<br>
-&nbsp;&nbsp;"message": "Rate limit exceeded. Please wait before making more requests."<br>
-}
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 Best Practices:</strong>
-                    Implement exponential backoff when retrying requests. Cache responses where possible to reduce API calls.
-                </div>
-                
-                <h3>Error Responses</h3>
-                <p>Common error codes and their meanings:</p>
-                <ul>
-                    <li><strong>400:</strong> Bad Request - Invalid parameters</li>
-                    <li><strong>401:</strong> Unauthorized - Invalid or missing API key</li>
-                    <li><strong>403:</strong> Forbidden - Insufficient permissions</li>
-                    <li><strong>404:</strong> Not Found - Resource doesn't exist</li>
-                    <li><strong>422:</strong> Unprocessable Entity - Validation error</li>
-                    <li><strong>429:</strong> Too Many Requests - Rate limit exceeded</li>
-                    <li><strong>500:</strong> Server Error - Internal server error</li>
-                </ul>
-                
-                <h3>Error Response Format</h3>
-                <div class="code-block">
-{<br>
-&nbsp;&nbsp;"error": "Validation Error",<br>
-&nbsp;&nbsp;"message": "The given data was invalid.",<br>
-&nbsp;&nbsp;"errors": {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;"name": ["The name field is required."]<br>
-&nbsp;&nbsp;}<br>
-}
-                </div>
+                <p>The API enforces rate limits to prevent abuse. The current limits are:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request Type</th>
+                            <th>Limit</th>
+                            <th>Window</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Authenticated requests</td><td>60</td><td>Per minute</td></tr>
+                        <tr><td>Unauthenticated requests</td><td>30</td><td>Per minute</td></tr>
+                        <tr><td>Server power actions</td><td>10</td><td>Per minute</td></tr>
+                        <tr><td>File uploads</td><td>20</td><td>Per minute</td></tr>
+                    </tbody>
+                </table>
+                <p>Rate limit headers are included in every API response:</p>
+                <pre><code>X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Reset: 1711000060</code></pre>
+                <p>If you exceed the limit, the API returns <code>429 Too Many Requests</code>. Wait for the reset window before retrying.</p>
             </section>
-            
-            <section class="section">
-                <h2>Code Examples</h2>
-                <p>Example API usage in various programming languages:</p>
-                
-                <h3>cURL</h3>
-                <div class="code-block">
-# List servers<br>
-curl -X GET \<br>
-&nbsp;&nbsp;https://panel.example.com/api/client/servers \<br>
-&nbsp;&nbsp;-H "Authorization: Bearer YOUR_API_KEY" \<br>
-&nbsp;&nbsp;-H "Content-Type: application/json"<br><br>
-# Send command to server<br>
-curl -X POST \<br>
-&nbsp;&nbsp;https://panel.example.com/api/client/servers/1/command \<br>
-&nbsp;&nbsp;-H "Authorization: Bearer YOUR_API_KEY" \<br>
-&nbsp;&nbsp;-H "Content-Type: application/json" \<br>
-&nbsp;&nbsp;-d '{"command": "list"}'
-                </div>
-                
-                <h3>Python</h3>
-                <div class="code-block">
-import requests<br><br>
-API_KEY = "your_api_key_here"<br>
-BASE_URL = "https://panel.example.com/api"<br><br>
-headers = {<br>
-&nbsp;&nbsp;"Authorization": f"Bearer {API_KEY}",<br>
-&nbsp;&nbsp;"Content-Type": "application/json"<br>
-}<br><br>
-# List servers<br>
-response = requests.get(f"{BASE_URL}/client/servers", headers=headers)<br>
-servers = response.json()["data"]<br><br>
-# Send command<br>
-response = requests.post(<br>
-&nbsp;&nbsp;f"{BASE_URL}/client/servers/1/command",<br>
-&nbsp;&nbsp;headers=headers,<br>
-&nbsp;&nbsp;json={"command": "list"}<br>
-)
-                </div>
-                
-                <h3>JavaScript (Node.js)</h3>
-                <div class="code-block">
-const axios = require('axios');<br><br>
-const API_KEY = 'your_api_key_here';<br>
-const BASE_URL = 'https://panel.example.com/api';<br><br>
-const client = axios.create({<br>
-&nbsp;&nbsp;baseURL: BASE_URL,<br>
-&nbsp;&nbsp;headers: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'Authorization': `Bearer ${API_KEY}`,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type': 'application/json'<br>
-&nbsp;&nbsp;}<br>
-});<br><br>
-// List servers<br>
-const servers = await client.get('/client/servers');<br><br>
-// Send command<br>
-await client.post('/client/servers/1/command', {<br>
-&nbsp;&nbsp;command: 'list'<br>
-});
-                </div>
-                
-                <div class="tip">
-                    <strong>💡 Need Help?</strong>
-                    Join our Discord community for API support and to share your integrations with other users.
-                </div>
+
+            <section>
+                <h2>Error Handling</h2>
+                <p>The API returns standard HTTP status codes and JSON error bodies. All errors follow this structure:</p>
+                <pre><code>{
+    "errors": [
+        {
+            "code": "ValidationException",
+            "status": "422",
+            "detail": "The given data was invalid.",
+            "meta": {
+                "field": "email",
+                "reason": "The email has already been taken."
+            }
+        }
+    ]
+}</code></pre>
+                <h3>Common Status Codes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>200</code></td><td>Request succeeded.</td></tr>
+                        <tr><td><code>201</code></td><td>Resource created successfully.</td></tr>
+                        <tr><td><code>204</code></td><td>Request succeeded with no response body.</td></tr>
+                        <tr><td><code>400</code></td><td>Malformed request. Check the request body or parameters.</td></tr>
+                        <tr><td><code>401</code></td><td>Authentication failed. Verify your API key and secret.</td></tr>
+                        <tr><td><code>403</code></td><td>Insufficient permissions for this action.</td></tr>
+                        <tr><td><code>404</code></td><td>Resource not found.</td></tr>
+                        <tr><td><code>422</code></td><td>Validation error. Check the <code>meta</code> field for details.</td></tr>
+                        <tr><td><code>429</code></td><td>Rate limit exceeded. Retry after the reset window.</td></tr>
+                        <tr><td><code>500</code></td><td>Internal server error. Contact the panel administrator.</td></tr>
+                    </tbody>
+                </table>
+                <p>Always implement retry logic with exponential backoff for <code>429</code> and <code>500</code> errors.</p>
             </section>
-            
+
+            <section>
+                <h2>Versioning</h2>
+                <p>The API is versioned via the <code>Accept</code> header. The current version is <code>v1</code>:</p>
+                <pre><code>Accept: Application/vnd.hexactyl.v1+json</code></pre>
+                <p>New versions will be introduced as breaking changes are made. The previous version will be supported for at least 12 months after a new version is released.</p>
+            </section>
+
             <footer class="footer">
-                <p>Hexactyl Panel Documentation | Version <span class="version">1.0.0</span></p>
-                <p>© 2026 Hexactyl. All rights reserved.</p>
+                <p>Hexactyl Panel &copy; 2024 &mdash; Built by <a href="https://github.com/itriedcoding" target="_blank">itriedcoding</a></p>
+                <p>Licensed under the MIT License</p>
             </footer>
         </main>
     </div>
