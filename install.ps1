@@ -20,11 +20,11 @@ $AppKey = [Convert]::ToBase64String((1..32 | ForEach-Object { Get-Random -Minimu
 
 function Write-Banner {
     Write-Host ""
-    Write-Host "  _   _  ____  ____  ____  _  __" -ForegroundColor Orange
-    Write-Host " | | | |/ ___||  _ \|  _ \| |/" -ForegroundColor Orange
-    Write-Host " | |_| | |    | |_) | | | | ' / " -ForegroundColor Orange
-    Write-Host " |  _  | |___ |  __/| |_| | . \ " -ForegroundColor Orange
-    Write-Host " |_| |_|\____||_|   |____/|_|\_\" -ForegroundColor Orange
+    Write-Host "  _   _  ____  ____  ____  _  __" -ForegroundColor DarkYellow
+    Write-Host " | | | |/ ___||  _ \|  _ \| |/" -ForegroundColor DarkYellow
+    Write-Host " | |_| | |    | |_) | | | | ' / " -ForegroundColor DarkYellow
+    Write-Host " |  _  | |___ |  __/| |_| | . \ " -ForegroundColor DarkYellow
+    Write-Host " |_| |_|\____||_|   |____/|_|\_\" -ForegroundColor DarkYellow
     Write-Host ""
     Write-Host "  Game Server Management Panel" -ForegroundColor Cyan
     Write-Host "  https://hexactyl-docs.vercel.app" -ForegroundColor Cyan
